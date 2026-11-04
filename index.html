@@ -142,12 +142,18 @@
   /* faixa de logos dos clientes */
   .clients { margin-top: 48px; text-align: center; }
   .clients__title { font-size: 11px; color: var(--fg-3); letter-spacing: .2em; text-transform: uppercase; margin-bottom: 18px; }
-  .clients__row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
-  .client { height: 86px; border-radius: 6px; background: #fff; display: grid; place-items: center; padding: 12px 18px; transition: transform .3s var(--ease), box-shadow .3s; }
+  .clients__title b { color: var(--fg); font-weight: 600; }
+  .clients__marquee { overflow: hidden; -webkit-mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+  .clients__track { display: flex; gap: 12px; width: max-content; animation: marquee 32s linear infinite; }
+  .clients__marquee:hover .clients__track { animation-play-state: paused; }
+  @keyframes marquee { to { transform: translateX(calc(-50% - 6px)); } }
+  .client { flex: none; width: 190px; height: 86px; border-radius: 6px; background: #fff; display: grid; place-items: center; padding: 12px 18px; transition: transform .3s var(--ease), box-shadow .3s; }
   .client:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(26,140,255,.25); }
   .client img { max-width: 100%; max-height: 62px; object-fit: contain; }
   .client--dark { background: #000; padding: 6px 10px; overflow: hidden; }
   .client--dark img { max-height: 74px; }
+  .client--navy { background: #04173a; padding: 4px; }
+  .client--navy img { max-height: 78px; }
   .who b { display: block; font-size: 12.5px; color: inherit; }
   .who small { font-size: 11px; opacity: .7; }
   .tcard__view { margin-left: auto; padding: 7px 12px; border-radius: 999px; border: 1px solid currentColor; background: transparent; color: inherit; font: 500 11px/1 "Inter"; cursor: pointer; opacity: .85; }
@@ -212,11 +218,10 @@
   .sq-ic svg { width: 17px; height: 17px; }
   .why h3 { font: 600 13.5px/1.3 "Inter"; letter-spacing: 0; margin-bottom: 8px; }
   .why p { margin: 0; font-size: 12.5px; color: var(--fg-2); }
-  .nums { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 22px; margin-top: 30px; text-align: left; }
-  .nums div b { display: block; font: 500 20px/1.2 "Inter Tight"; }
-  .nums div small { font-size: 11px; color: var(--fg-3); }
-  .segs { display: flex; flex-wrap: wrap; gap: 8px; }
-  .segs span { padding: 7px 12px; border-radius: 999px; border: 1px solid var(--line); font-size: 11.5px; color: var(--fg-2); }
+  .nums { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 12px; }
+  .stat { padding: 26px 20px; border-radius: 6px; background: var(--bg-2); border: 1px solid var(--line); border-top: 3px solid var(--blue); text-align: center; }
+  .stat b { display: block; font: 600 34px/1.1 "Inter Tight"; letter-spacing: -.02em; color: var(--blue-hl); white-space: nowrap; }
+  .stat small { display: block; margin-top: 8px; font-size: 13px; color: var(--fg-2); }
 
   /* =========================================================
      6. JORNADA DO CLIENTE (órbita)
@@ -344,9 +349,7 @@
     .tcard__shot { width: 100%; aspect-ratio: 4 / 5; }
     .tcard__shot img { object-position: 50% 35%; }
     .slider__nav { display: none; }
-    .clients__row { grid-template-columns: 1fr 1fr; }
-    .client:last-child { grid-column: 1 / -1; width: calc(50% - 6px); justify-self: center; }
-    .client { height: 74px; }
+    .client { width: 150px; height: 70px; }
     .paths { grid-template-columns: 1fr; }
     .path h3 { font-size: 20px; }
     .phases { grid-template-columns: 1fr; }
@@ -364,11 +367,13 @@
     .modal .form-card { max-height: 94vh; border-radius: 16px 16px 0 0; max-width: none; }
     .sticky-cta { display: block; }
     footer { padding-bottom: 96px; }
-    .nums { justify-content: flex-start; }
+    .nums { grid-template-columns: 1fr; }
+    .stat b { font-size: 30px; }
   }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
     .js [data-reveal] { opacity: 1; }
+    .clients__marquee { overflow-x: auto; }
   }
 </style>
 <script>document.documentElement.classList.add('js');</script>
@@ -492,13 +497,9 @@
 
     <!-- logos de clientes: adicione mais em assets/img/clientes/ -->
     <div class="clients" data-reveal>
-      <div class="clients__title">Empresas que ajudamos a alavancar</div>
-      <div class="clients__row">
-        <div class="client client--dark"><img src="assets/img/clientes/show-dos-toldos.jpg" alt="Show dos Toldos" loading="lazy"></div>
-        <div class="client"><img src="assets/img/clientes/esquadri-zen.png" alt="Esquadri Zen - Vidros e esquadrias de alumínio" loading="lazy"></div>
-        <div class="client"><img src="assets/img/clientes/dbm.png" alt="DBM - Central de serviços" loading="lazy"></div>
-        <div class="client"><img src="assets/img/clientes/governador.png" alt="Desentupidora Governador" loading="lazy"></div>
-        <div class="client"><img src="assets/img/clientes/ecologica.png" alt="Ecológica Imunizações e Serviços" loading="lazy"></div>
+      <div class="clients__title"><b>+100 empresas atendidas</b> · algumas que ajudamos a alavancar</div>
+      <div class="clients__marquee">
+        <div class="clients__track"><div class="client client--dark"><img src="assets/img/clientes/show-dos-toldos.jpg" alt="Show dos Toldos" loading="lazy"></div><div class="client "><img src="assets/img/clientes/esquadri-zen.png" alt="Esquadri Zen - Vidros e esquadrias de alumínio" loading="lazy"></div><div class="client "><img src="assets/img/clientes/dbm.png" alt="DBM - Central de serviços" loading="lazy"></div><div class="client "><img src="assets/img/clientes/recreio-refrigeracao.png" alt="Recreio Refrigeração" loading="lazy"></div><div class="client "><img src="assets/img/clientes/governador.png" alt="Desentupidora Governador" loading="lazy"></div><div class="client client--navy"><img src="assets/img/clientes/sanitizatudo.jpg" alt="Sanitizatudo - Serviços e controle de pragas" loading="lazy"></div><div class="client "><img src="assets/img/clientes/ecologica.png" alt="Ecológica Imunizações e Serviços" loading="lazy"></div><div class="client "><img src="assets/img/clientes/iridium-ambiental.png" alt="Iridium Ambiental" loading="lazy"></div><div class="client client--dark" aria-hidden="true"><img src="assets/img/clientes/show-dos-toldos.jpg" alt="" loading="lazy"></div><div class="client " aria-hidden="true"><img src="assets/img/clientes/esquadri-zen.png" alt="" loading="lazy"></div><div class="client " aria-hidden="true"><img src="assets/img/clientes/dbm.png" alt="" loading="lazy"></div><div class="client " aria-hidden="true"><img src="assets/img/clientes/recreio-refrigeracao.png" alt="" loading="lazy"></div><div class="client " aria-hidden="true"><img src="assets/img/clientes/governador.png" alt="" loading="lazy"></div><div class="client client--navy" aria-hidden="true"><img src="assets/img/clientes/sanitizatudo.jpg" alt="" loading="lazy"></div><div class="client " aria-hidden="true"><img src="assets/img/clientes/ecologica.png" alt="" loading="lazy"></div><div class="client " aria-hidden="true"><img src="assets/img/clientes/iridium-ambiental.png" alt="" loading="lazy"></div></div>
       </div>
     </div>
 
@@ -598,10 +599,9 @@
       <div data-card><div class="sq-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-7"/></svg></div><h3>Decisões com números</h3><p>Painel de resultados com meta, investimento, custo por lead, custo por venda e retorno. <b>Você sabe o que funciona.</b></p></div>
     </div>
     <div class="nums" data-reveal>
-      <div><b>R$ 36 mil</b><small>em 15 dias com R$ 580</small></div>
-      <div><b>62x</b><small>retorno sobre o anúncio</small></div>
-      <div><b>80%</b><small>de conversão em leads</small></div>
-      <div class="segs"><span>Toldos</span><span>Esquadrias</span><span>Desentupidora</span><span>Vidraçarias</span><span>Clínicas</span><span>Construção</span><span>Energia solar</span><span>Automotivo</span><span>B2B</span></div>
+      <div class="stat"><b data-count="100" data-prefix="+">+100</b><small>empresas atendidas</small></div>
+      <div class="stat"><b data-count="1" data-prefix="+R$ " data-suffix=" milhão">+R$ 1 milhão</b><small>em receita gerada para os clientes</small></div>
+      <div class="stat"><b data-count="300" data-prefix="+R$ " data-suffix=" mil">+R$ 300 mil</b><small>investidos em marketing</small></div>
     </div>
     <div class="cta"><a class="btn" href="#formulario" data-open-form>Quero saber mais</a></div>
   </div>
@@ -912,6 +912,11 @@ window.VORTEX_CONFIG = {
     gsap.utils.toArray('[data-reveal]').forEach(function (el) {
       if (el.classList.contains('hcard-wrap')) return;
       gsap.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1, ease: 'power3.out', clearProps: 'transform', scrollTrigger: { trigger: el, start: 'top 88%' } });
+    });
+    document.querySelectorAll('[data-count]').forEach(function (el) {
+      var o = { v: 0 }, end = +el.dataset.count, pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
+      gsap.to(o, { v: end, duration: 1.8, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 90%' },
+        onUpdate: function () { el.textContent = pre + Math.round(o.v) + suf; } });
     });
     ScrollTrigger.batch('[data-card]', { start: 'top 90%', onEnter: function (b) { gsap.from(b, { opacity: 0, y: 50, rotateX: -20, transformPerspective: 1000, transformOrigin: '50% 0%', duration: .9, stagger: .1, ease: 'power3.out', clearProps: 'transform' }); } });
   }
