@@ -48,7 +48,7 @@
   .hl { color: var(--blue-hl); font-weight: 600; }
   .eyebrow { display: block; font: 500 10.5px/1 "Inter", sans-serif; letter-spacing: .24em; text-transform: uppercase; color: var(--blue-hl); margin-bottom: 14px; }
   .h2 { font-size: 26px; line-height: 1.22; }
-  .section { padding: 88px 0; position: relative; }
+  .section { padding: 64px 0; position: relative; }
   .center { text-align: center; }
 
   /* ---------- botão verde (pílula) ---------- */
@@ -67,7 +67,7 @@
   .btn--sm { padding: 10px 22px; font-size: 13px; }
   .btn--block { width: 100%; }
   .btn[disabled] { opacity: .7; cursor: wait; }
-  .cta { text-align: center; margin-top: 40px; }
+  .cta { text-align: center; margin-top: 32px; }
   .cta small { display: block; margin-top: 10px; font-size: 12px; color: var(--fg-2); }
 
   /* =========================================================
@@ -87,26 +87,18 @@
   /* =========================================================
      1. HERO
      ========================================================= */
-  .hero { padding: 72px 0 96px; }
+  .hero { padding: 56px 0 64px; }
   .hero__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
   .hero h1 { font-size: 40px; line-height: 1.1; }
   .hero p { margin: 16px 0 26px; max-width: 400px; font-size: 14.5px; color: var(--fg-2); }
   .btn--lg { padding: 13px 30px; font-size: 14px; }
   .note { display: block; margin-top: 12px; font-size: 12px; color: var(--fg-3); }
-  /* card da direita (na referência: foto do fundador) */
-  .hcard-wrap { position: relative; padding-left: 30px; justify-self: end; width: 100%; max-width: 380px; }
-  .hcard-wrap__side { position: absolute; left: 0; bottom: 4px; transform-origin: left bottom; transform: rotate(-90deg) translate(-2px, 18px); white-space: nowrap; font: 500 10px/1 "Inter"; letter-spacing: .4em; color: var(--fg-3); }
-  .hcard { position: relative; overflow: hidden; aspect-ratio: 4 / 5; border-radius: 6px; background: var(--blue); clip-path: polygon(0 0, 100% 0, 100% 40%, 92% 44%, 92% 100%, 0 100%); }
-  .hcard canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
-  .hcard__name { position: absolute; left: 14px; top: 16px; writing-mode: vertical-rl; transform: rotate(180deg); font: 600 50px/1 "Inter Tight"; letter-spacing: -.01em; color: rgba(255,255,255,.2); }
-  .hcard__name small { display: block; font-size: 20px; font-weight: 500; margin-left: 4px; color: rgba(255,255,255,.3); }
-  .hcard__logo { position: absolute; right: 46px; top: 14px; width: 26px; height: 26px; object-fit: contain; }
-  .hcard__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  .hcard__big { position: absolute; left: 46%; top: 45%; transform: translate(-50%, -50%); width: 40%; filter: drop-shadow(0 10px 30px rgba(0,0,0,.3)); }
-  .hcard__cap { position: absolute; left: 24px; right: 56px; bottom: 22px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,.35); }
-  .hcard__cap b { display: block; font: 600 13.5px/1.2 "Inter Tight"; color: #fff; }
-  .hcard__cap small { display: block; margin-top: 6px; font-size: 11px; color: rgba(255,255,255,.85); }
-
+  /* formulário no topo (computador) */
+  .hform { position: relative; padding-left: 30px; justify-self: end; width: 100%; max-width: 430px; }
+  .hform__side { position: absolute; left: 0; bottom: 6px; transform-origin: left bottom; transform: rotate(-90deg) translate(-2px, 18px); white-space: nowrap; font: 500 10px/1 "Inter"; letter-spacing: .4em; color: var(--fg-3); }
+  .hform .form-card { border-top: 3px solid var(--blue); }
+  .form-card.flash { animation: flash 1.2s ease; }
+  @keyframes flash { 0%, 100% { box-shadow: 0 30px 80px rgba(0,0,0,.45); } 30% { box-shadow: 0 0 0 4px rgba(26,140,255,.55), 0 30px 80px rgba(26,140,255,.3); } }
 
   /* =========================================================
      2. DEPOIMENTOS
@@ -140,7 +132,7 @@
   .who i.who__logo--dark img { object-fit: cover; }
   .tcard--white .who i.who__logo { box-shadow: 0 0 0 1px #dfe2e8; }
   /* faixa de logos dos clientes */
-  .clients { margin-top: 48px; text-align: center; }
+  .clients { margin-top: 40px; text-align: center; }
   .clients__title { font-size: 11px; color: var(--fg-3); letter-spacing: .2em; text-transform: uppercase; margin-bottom: 18px; }
   .clients__title b { color: var(--fg); font-weight: 600; }
   .clients__marquee { overflow: hidden; -webkit-mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
@@ -164,7 +156,7 @@
   .slider__nav svg { width: 14px; height: 14px; }
 
   /* prints em carrossel 3D */
-  .prints { margin-top: 56px; }
+  .prints { margin-top: 40px; }
   .prints__title { text-align: center; font-size: 11px; color: var(--fg-3); letter-spacing: .2em; text-transform: uppercase; }
   .carousel { position: relative; height: 470px; perspective: 1600px; cursor: grab; user-select: none; -webkit-user-select: none; touch-action: pan-y; }
   .carousel:active { cursor: grabbing; }
@@ -333,13 +325,13 @@
   @media (max-width: 900px) {
     .nav__links a:not(.btn) { display: none; }
     .hero__grid, .orbit-grid { grid-template-columns: 1fr; }
-    .hcard-wrap { justify-self: center; max-width: 340px; }
+    .hform { display: none; }
     .phases { grid-template-columns: 1fr 1fr; }
     .why { grid-template-columns: 1fr; }
   }
   @media (max-width: 640px) {
-    .section { padding: 72px 0; }
-    .hero { padding: 40px 0 70px; }
+    .section { padding: 52px 0; }
+    .hero { padding: 36px 0 44px; }
     .hero h1 { font-size: 29px; }
     .hero p { font-size: 14px; }
     .h2, .orbit-grid h2 { font-size: 22px; }
@@ -407,17 +399,82 @@
       <a class="btn btn--lg" href="#formulario" data-open-form>Quero saber mais</a>
       <small class="note">*O cadastro leva 1 minuto</small>
     </div>
-    <div class="hcard-wrap" data-reveal>
-      <span class="hcard-wrap__side">SISTEMA DE ESCALA</span>
-      <div class="hcard">
-        <canvas id="heroCanvas" aria-hidden="true"></canvas>
-        <!-- Para usar a FOTO do fundador no lugar do redemoinho, coloque a foto em assets/img/fundador.jpg e descomente:
-        <img class="hcard__photo" src="assets/img/fundador.jpg" alt="Nome do fundador"> -->
-        <div class="hcard__name">Vortex<small>Company</small></div>
-        <img class="hcard__logo" src="assets/logo-icone.png" alt="">
-        <img class="hcard__big" src="assets/logo-icone.png" alt="">
-        <div class="hcard__cap"><b>Sistema de Escala Vortex</b><small>Atração · Consideração · Conversão · Apologia</small></div>
+    <div class="hform" id="hform">
+      <span class="hform__side">ANÁLISE GRATUITA</span>
+<div class="form-card" id="formulario">
+    <button type="button" class="form-close" data-close aria-label="Fechar">×</button>
+    <h2 id="formTitle">Receba seu <span class="hl">Plano de Crescimento 2027</span></h2>
+    <p class="fsub">Leva menos de 1 minuto. Um especialista entra em contato em até 12h.</p>
+    <div class="progress" aria-hidden="true"><span id="bar"></span></div>
+    <div class="progress-label"><span id="stepLabel">Etapa 1 de 6</span><span id="stepPct">0%</span></div>
+    <form id="leadForm" novalidate>
+      <div class="hp" aria-hidden="true"><label>Não preencha <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+
+      <div class="fstep active" data-step="1">
+        <h3>Vamos começar. Como podemos te chamar?</h3>
+        <div class="field"><label for="f-nome">Qual é o seu nome?</label><input id="f-nome" name="nome" type="text" autocomplete="name" placeholder="Seu nome completo" required maxlength="80"><div class="ferr">Digite seu nome.</div></div>
+        <div class="field"><label for="f-whats">Qual é o seu WhatsApp?</label><input id="f-whats" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="(00) 00000-0000" required maxlength="16"><div class="ferr">Digite um WhatsApp válido com DDD.</div></div>
+        <div class="field"><label for="f-empresa">Qual é o nome da sua empresa?</label><input id="f-empresa" name="empresa" type="text" autocomplete="organization" placeholder="Nome da empresa" required maxlength="100"><div class="ferr">Digite o nome da empresa.</div></div>
+        <div class="factions"><button type="button" class="btn btn--block" data-next>Continuar</button></div>
       </div>
+
+      <div class="fstep" data-step="2">
+        <h3>Em qual segmento sua empresa atua?</h3>
+        <div class="field"><label for="f-seg" class="sr">Segmento</label><input id="f-seg" name="segmento" type="text" placeholder="Ex.: clínica, vidraçaria, energia solar..." required maxlength="100"><div class="hint">Clínica, construção, vidraçaria, esquadrias, serviços automotivos, energia solar, serviços B2B etc.</div><div class="ferr">Conte qual é o seu segmento.</div></div>
+        <div class="factions"><button type="button" class="back" data-back>Voltar</button><button type="button" class="btn btn--block" data-next>Continuar</button></div>
+      </div>
+
+      <div class="fstep" data-step="3">
+        <h3>Qual dessas situações mais representa o momento da sua empresa hoje?</h3>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="desafio" value="Preciso gerar mais clientes e oportunidades"><span>Preciso gerar mais clientes e oportunidades</span></label>
+          <label class="opt"><input type="radio" name="desafio" value="Dependo muito de indicação"><span>Dependo muito de indicação</span></label>
+          <label class="opt"><input type="radio" name="desafio" value="Já anuncio, mas os resultados são inconsistentes"><span>Já anuncio, mas os resultados são inconsistentes</span></label>
+          <label class="opt"><input type="radio" name="desafio" value="Minha empresa cresceu, mas marketing e comercial estão desorganizados"><span>Minha empresa cresceu, mas marketing e comercial estão desorganizados</span></label>
+          <label class="opt"><input type="radio" name="desafio" value="Quero crescer, mas não sei exatamente o que precisa ser corrigido"><span>Quero crescer, mas não sei exatamente o que precisa ser corrigido</span></label>
+        </div>
+        <div class="ferr">Escolha uma opção.</div>
+        <div class="factions"><button type="button" class="back" data-back>Voltar</button></div>
+      </div>
+
+      <div class="fstep" data-step="4">
+        <h3>Qual é aproximadamente o faturamento mensal da sua empresa?</h3>
+        <div class="opts opts--2">
+          <label class="opt"><input type="radio" name="faturamento" value="Até R$30 mil"><span>Até R$30 mil</span></label>
+          <label class="opt"><input type="radio" name="faturamento" value="R$30 mil a R$60 mil"><span>R$30 mil a R$60 mil</span></label>
+          <label class="opt"><input type="radio" name="faturamento" value="R$60 mil a R$100 mil"><span>R$60 mil a R$100 mil</span></label>
+          <label class="opt"><input type="radio" name="faturamento" value="R$100 mil a R$200 mil"><span>R$100 mil a R$200 mil</span></label>
+          <label class="opt"><input type="radio" name="faturamento" value="R$200 mil a R$500 mil"><span>R$200 mil a R$500 mil</span></label>
+          <label class="opt"><input type="radio" name="faturamento" value="Acima de R$500 mil"><span>Acima de R$500 mil</span></label>
+        </div>
+        <div class="ferr">Escolha uma opção.</div>
+        <div class="factions"><button type="button" class="back" data-back>Voltar</button></div>
+      </div>
+
+      <div class="fstep" data-step="5">
+        <h3>Se começassem a entrar mais oportunidades nos próximos meses, sua empresa conseguiria atender?</h3>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="capacidade" value="Sim, temos estrutura para crescer"><span>Sim, temos estrutura para crescer</span></label>
+          <label class="opt"><input type="radio" name="capacidade" value="Sim, mas precisaríamos aumentar um pouco a capacidade"><span>Sim, mas precisaríamos aumentar um pouco a capacidade</span></label>
+          <label class="opt"><input type="radio" name="capacidade" value="Hoje já estamos próximos do limite"><span>Hoje já estamos próximos do limite</span></label>
+        </div>
+        <div class="ferr">Escolha uma opção.</div>
+        <div class="factions"><button type="button" class="back" data-back>Voltar</button></div>
+      </div>
+
+      <div class="fstep" data-step="6">
+        <h3>Quando você gostaria de começar a trabalhar o crescimento da empresa?</h3>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="momento" value="Imediatamente"><span>Imediatamente</span></label>
+          <label class="opt"><input type="radio" name="momento" value="Em até 30 dias"><span>Em até 30 dias</span></label>
+          <label class="opt"><input type="radio" name="momento" value="Em até 90 dias"><span>Em até 90 dias</span></label>
+        </div>
+        <div class="ferr">Escolha uma opção.</div>
+        <div class="factions"><button type="button" class="back" data-back>Voltar</button><button type="submit" class="btn btn--block" id="submitBtn">Quero meu plano 2027</button></div>
+      </div>
+    </form>
+    <div class="secure">🔒 Seus dados estão seguros. Não enviamos spam.</div>
+</div>
     </div>
   </div>
 </section>
@@ -524,7 +581,7 @@
 </section>
 
 <!-- 3. DOIS CAMINHOS (para quem é) -->
-<section class="section center" id="para-quem" style="padding-top:40px">
+<section class="section center" id="para-quem" style="padding-top:24px">
   <div class="wrap">
     <h2 class="h2" data-reveal>Organizar o que você já tem<br>ou montar do zero: <span class="hl">você escolhe.</span></h2>
     <div class="paths">
@@ -661,81 +718,7 @@
 <div class="sticky-cta" id="stickyCta"><a class="btn" href="#formulario" data-open-form>Quero saber mais</a></div>
 
 <!-- FORMULÁRIO (abre em janela ao clicar nos botões) -->
-<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="formTitle">
-<div class="form-card" id="formulario">
-    <button type="button" class="form-close" data-close aria-label="Fechar">×</button>
-    <h2 id="formTitle">Receba seu <span class="hl">Plano de Crescimento 2027</span></h2>
-    <p class="fsub">Leva menos de 1 minuto. Um especialista entra em contato em até 12h.</p>
-    <div class="progress" aria-hidden="true"><span id="bar"></span></div>
-    <div class="progress-label"><span id="stepLabel">Etapa 1 de 6</span><span id="stepPct">0%</span></div>
-    <form id="leadForm" novalidate>
-      <div class="hp" aria-hidden="true"><label>Não preencha <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
-
-      <div class="fstep active" data-step="1">
-        <h3>Vamos começar. Como podemos te chamar?</h3>
-        <div class="field"><label for="f-nome">Qual é o seu nome?</label><input id="f-nome" name="nome" type="text" autocomplete="name" placeholder="Seu nome completo" required maxlength="80"><div class="ferr">Digite seu nome.</div></div>
-        <div class="field"><label for="f-whats">Qual é o seu WhatsApp?</label><input id="f-whats" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="(00) 00000-0000" required maxlength="16"><div class="ferr">Digite um WhatsApp válido com DDD.</div></div>
-        <div class="field"><label for="f-empresa">Qual é o nome da sua empresa?</label><input id="f-empresa" name="empresa" type="text" autocomplete="organization" placeholder="Nome da empresa" required maxlength="100"><div class="ferr">Digite o nome da empresa.</div></div>
-        <div class="factions"><button type="button" class="btn btn--block" data-next>Continuar</button></div>
-      </div>
-
-      <div class="fstep" data-step="2">
-        <h3>Em qual segmento sua empresa atua?</h3>
-        <div class="field"><label for="f-seg" class="sr">Segmento</label><input id="f-seg" name="segmento" type="text" placeholder="Ex.: clínica, vidraçaria, energia solar..." required maxlength="100"><div class="hint">Clínica, construção, vidraçaria, esquadrias, serviços automotivos, energia solar, serviços B2B etc.</div><div class="ferr">Conte qual é o seu segmento.</div></div>
-        <div class="factions"><button type="button" class="back" data-back>Voltar</button><button type="button" class="btn btn--block" data-next>Continuar</button></div>
-      </div>
-
-      <div class="fstep" data-step="3">
-        <h3>Qual dessas situações mais representa o momento da sua empresa hoje?</h3>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="desafio" value="Preciso gerar mais clientes e oportunidades"><span>Preciso gerar mais clientes e oportunidades</span></label>
-          <label class="opt"><input type="radio" name="desafio" value="Dependo muito de indicação"><span>Dependo muito de indicação</span></label>
-          <label class="opt"><input type="radio" name="desafio" value="Já anuncio, mas os resultados são inconsistentes"><span>Já anuncio, mas os resultados são inconsistentes</span></label>
-          <label class="opt"><input type="radio" name="desafio" value="Minha empresa cresceu, mas marketing e comercial estão desorganizados"><span>Minha empresa cresceu, mas marketing e comercial estão desorganizados</span></label>
-          <label class="opt"><input type="radio" name="desafio" value="Quero crescer, mas não sei exatamente o que precisa ser corrigido"><span>Quero crescer, mas não sei exatamente o que precisa ser corrigido</span></label>
-        </div>
-        <div class="ferr">Escolha uma opção.</div>
-        <div class="factions"><button type="button" class="back" data-back>Voltar</button></div>
-      </div>
-
-      <div class="fstep" data-step="4">
-        <h3>Qual é aproximadamente o faturamento mensal da sua empresa?</h3>
-        <div class="opts opts--2">
-          <label class="opt"><input type="radio" name="faturamento" value="Até R$30 mil"><span>Até R$30 mil</span></label>
-          <label class="opt"><input type="radio" name="faturamento" value="R$30 mil a R$60 mil"><span>R$30 mil a R$60 mil</span></label>
-          <label class="opt"><input type="radio" name="faturamento" value="R$60 mil a R$100 mil"><span>R$60 mil a R$100 mil</span></label>
-          <label class="opt"><input type="radio" name="faturamento" value="R$100 mil a R$200 mil"><span>R$100 mil a R$200 mil</span></label>
-          <label class="opt"><input type="radio" name="faturamento" value="R$200 mil a R$500 mil"><span>R$200 mil a R$500 mil</span></label>
-          <label class="opt"><input type="radio" name="faturamento" value="Acima de R$500 mil"><span>Acima de R$500 mil</span></label>
-        </div>
-        <div class="ferr">Escolha uma opção.</div>
-        <div class="factions"><button type="button" class="back" data-back>Voltar</button></div>
-      </div>
-
-      <div class="fstep" data-step="5">
-        <h3>Se começassem a entrar mais oportunidades nos próximos meses, sua empresa conseguiria atender?</h3>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="capacidade" value="Sim, temos estrutura para crescer"><span>Sim, temos estrutura para crescer</span></label>
-          <label class="opt"><input type="radio" name="capacidade" value="Sim, mas precisaríamos aumentar um pouco a capacidade"><span>Sim, mas precisaríamos aumentar um pouco a capacidade</span></label>
-          <label class="opt"><input type="radio" name="capacidade" value="Hoje já estamos próximos do limite"><span>Hoje já estamos próximos do limite</span></label>
-        </div>
-        <div class="ferr">Escolha uma opção.</div>
-        <div class="factions"><button type="button" class="back" data-back>Voltar</button></div>
-      </div>
-
-      <div class="fstep" data-step="6">
-        <h3>Quando você gostaria de começar a trabalhar o crescimento da empresa?</h3>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="momento" value="Imediatamente"><span>Imediatamente</span></label>
-          <label class="opt"><input type="radio" name="momento" value="Em até 30 dias"><span>Em até 30 dias</span></label>
-          <label class="opt"><input type="radio" name="momento" value="Em até 90 dias"><span>Em até 90 dias</span></label>
-        </div>
-        <div class="ferr">Escolha uma opção.</div>
-        <div class="factions"><button type="button" class="back" data-back>Voltar</button><button type="submit" class="btn btn--block" id="submitBtn">Quero meu plano 2027</button></div>
-      </div>
-    </form>
-    <div class="secure">🔒 Seus dados estão seguros. Não enviamos spam.</div>
-</div>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="formTitle"></div>
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagem ampliada"><button type="button" aria-label="Fechar">×</button><img alt=""></div>
 
@@ -746,7 +729,7 @@
    ====================================================== */
 window.VORTEX_CONFIG = {
   SHEETS_URL: '',              // ex.: 'https://script.google.com/macros/s/XXXX/exec'
-  THANK_YOU_URL: 'obrigado/'   // página de obrigado
+  THANK_YOU_URL: 'plano-de-crescimento-obrigado/'   // página de obrigado
 };
 </script>
 <script>
@@ -782,20 +765,29 @@ window.VORTEX_CONFIG = {
   lb.addEventListener('click', function () { lb.classList.remove('open'); });
 
   /* ---------- janela do formulário ---------- */
-  var modal = document.getElementById('modal'), card = document.getElementById('formulario');
+  // no computador o formulário fica no topo; no celular abre numa janela
+  var modal = document.getElementById('modal'), card = document.getElementById('formulario'), home = document.getElementById('hform');
   var lastFocus = null, opened = false;
+  function desktop() { return innerWidth > 900; }
+  function focusFirst() { var i = card.querySelector('.fstep.active input:not([type=radio])'); if (i) i.focus({ preventScroll: true }); }
   function openForm(e) {
     if (e) e.preventDefault();
     if (!opened) { opened = true; track('InitiateCheckout'); }
+    if (desktop()) {
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      card.classList.remove('flash'); void card.offsetWidth; card.classList.add('flash');
+      setTimeout(focusFirst, 500);
+      return;
+    }
     lastFocus = document.activeElement;
-    modal.classList.add('open'); document.body.style.overflow = 'hidden';
-    setTimeout(function () { var i = card.querySelector('.fstep.active input:not([type=radio])'); if (i && !isMobile) i.focus(); }, 80);
+    modal.appendChild(card); modal.classList.add('open'); document.body.style.overflow = 'hidden';
   }
   function closeForm() {
     if (!modal.classList.contains('open')) return;
-    modal.classList.remove('open'); document.body.style.overflow = '';
+    modal.classList.remove('open'); document.body.style.overflow = ''; home.appendChild(card);
     if (lastFocus) lastFocus.focus();
   }
+  addEventListener('resize', function () { if (desktop()) closeForm(); });
   document.querySelectorAll('[data-open-form]').forEach(function (a) { a.addEventListener('click', openForm); });
   modal.addEventListener('click', function (e) { if (e.target === modal) closeForm(); });
   card.querySelector('[data-close]').addEventListener('click', closeForm);
@@ -899,7 +891,6 @@ window.VORTEX_CONFIG = {
   function showAll() { document.querySelectorAll('[data-reveal]').forEach(function (el) { el.style.opacity = 1; }); }
   function boot() {
     loadScript('assets/js/gsap.min.js').then(function () { return loadScript('assets/js/ScrollTrigger.min.js'); }).then(initGsap).catch(showAll);
-    if (!reduce) setTimeout(function () { loadScript('assets/js/three.min.js').then(initThree).catch(function () {}); }, 300);
   }
   if (document.readyState === 'complete') boot(); else addEventListener('load', boot);
   setTimeout(function () { if (!window.gsap) showAll(); }, 4000);
@@ -908,9 +899,8 @@ window.VORTEX_CONFIG = {
     if (reduce) return showAll();
     gsap.registerPlugin(ScrollTrigger);
     gsap.from('.hero__txt > *', { opacity: 0, y: 30, duration: .9, stagger: .1, ease: 'power3.out', clearProps: 'transform,opacity', onStart: function () { document.querySelector('.hero .btn').style.transition = 'none'; }, onComplete: function () { document.querySelector('.hero .btn').style.transition = ''; } });
-    gsap.fromTo('.hcard-wrap', { opacity: 0, rotateY: -25, x: 60 }, { opacity: 1, rotateY: 0, x: 0, duration: 1.4, ease: 'power3.out', delay: .2, transformPerspective: 1200 });
+    gsap.from('.hform', { opacity: 0, x: 40, duration: 1.1, ease: 'power3.out', delay: .2, clearProps: 'transform,opacity' });
     gsap.utils.toArray('[data-reveal]').forEach(function (el) {
-      if (el.classList.contains('hcard-wrap')) return;
       gsap.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1, ease: 'power3.out', clearProps: 'transform', scrollTrigger: { trigger: el, start: 'top 88%' } });
     });
     document.querySelectorAll('[data-count]').forEach(function (el) {
@@ -922,27 +912,6 @@ window.VORTEX_CONFIG = {
   }
 
 
-  /* ---------- redemoinho 3D dentro do card do topo ---------- */
-  function initThree() {
-    var canvas = document.getElementById('heroCanvas'); if (!canvas) return;
-    var renderer; try { renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: false, powerPreference: 'low-power' }); } catch (e) { return; }
-    renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
-    var scene = new THREE.Scene(), camera = new THREE.PerspectiveCamera(50, 1, .1, 100);
-    var group = new THREE.Group(); scene.add(group);
-    var N = isMobile ? 3000 : 6000, pos = new Float32Array(N * 3), data = new Float32Array(N * 4);
-    for (var i = 0; i < N; i++) { var h = Math.random(), r = .15 + Math.pow(h, 1.7) * 3.2 + (Math.random() - .5) * .35 * (.25 + h); pos[i * 3 + 1] = (h - .5) * 7; data[i * 4] = r; data[i * 4 + 1] = Math.random() * 6.2832; data[i * 4 + 2] = (.4 + Math.random() * .4) / (.35 + r * .45); data[i * 4 + 3] = .6 + Math.random() * 1.4; }
-    var geo = new THREE.BufferGeometry(); geo.setAttribute('position', new THREE.BufferAttribute(pos, 3)); geo.setAttribute('aData', new THREE.BufferAttribute(data, 4));
-    var mat = new THREE.ShaderMaterial({ transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, uniforms: { uTime: { value: 0 }, uPix: { value: renderer.getPixelRatio() } },
-      vertexShader: 'attribute vec4 aData; uniform float uTime; uniform float uPix; varying float vF;\nvoid main(){ float r=aData.x; float a=aData.y+uTime*aData.z; vec3 p=vec3(cos(a)*r, position.y, sin(a)*r); vec4 mv=modelViewMatrix*vec4(p,1.); gl_Position=projectionMatrix*mv; gl_PointSize=aData.w*uPix*(14./-mv.z); vF=.35+.65*(sin(a)*.5+.5); }',
-      fragmentShader: 'varying float vF;\nvoid main(){ float d=length(gl_PointCoord-.5); if(d>.5) discard; gl_FragColor=vec4(1.,1.,1., smoothstep(.5,0.,d)*.75*vF); }' });
-    group.add(new THREE.Points(geo, mat)); group.rotation.z = -.35; group.rotation.x = .25; group.position.y = .3;
-    camera.position.set(0, 0, 9);
-    function size() { var w = canvas.clientWidth, h = canvas.clientHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); }
-    size(); addEventListener('resize', size);
-    var vis = true; new IntersectionObserver(function (e) { vis = e[0].isIntersecting; }).observe(canvas);
-    var t0 = performance.now();
-    (function frame(now) { if (vis && !document.hidden) { mat.uniforms.uTime.value = (now - t0) / 1000; renderer.render(scene, camera); } requestAnimationFrame(frame); })(t0);
-  }
 })();
 </script>
 </body>

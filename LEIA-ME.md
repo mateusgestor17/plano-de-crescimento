@@ -3,7 +3,7 @@
 ```
 vortex-site/
 ├── index.html              ← página principal (domínio principal)
-├── obrigado/index.html     ← página de obrigado (seudominio.com.br/obrigado/)
+├── plano-de-crescimento-obrigado/index.html  ← página de obrigado (seudominio.com.br/plano-de-crescimento-obrigado/)
 ├── assets/
 │   ├── logo-vortex.png, logo-icone.png
 │   ├── img/resultados/     ← troque resultado-1.jpg ... resultado-8.jpg pelos prints reais
