@@ -22,7 +22,8 @@ function doPost(e) {
     if (!d.nome || !d.whatsapp) return json_({ ok: false, erro: 'nome e whatsapp obrigatórios' });
 
     // o script fica dentro da própria planilha (Extensões → Apps Script)
-    var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
+    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    var sheet = ss.getSheetByName(SHEET_NAME) || ss.getSheets()[0]; // se a aba mudar de nome, usa a primeira
     var headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
 
     var temAnuncio = !!(d.utm_source || d.fbclid || d.gclid || d.utm_campaign);
@@ -69,6 +70,16 @@ function doPost(e) {
   } finally {
     lock.releaseLock();
   }
+}
+
+// TESTE: selecione "testeLead" no topo do editor e clique em Executar.
+// Uma linha de teste aparece na planilha (pode apagar depois).
+function testeLead() {
+  var r = doPost({ postData: { contents: JSON.stringify({
+    nome: 'TESTE - pode apagar', whatsapp: '+5500000000000', empresa: 'Teste', segmento: 'Teste',
+    desafio: 'Teste', faturamento: 'Teste', capacidade: 'Teste', momento: 'Teste'
+  }) } });
+  Logger.log(r.getContent());
 }
 
 // teste rápido: abra o link /exec no navegador e deve aparecer "ok"
