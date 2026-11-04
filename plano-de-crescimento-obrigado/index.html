@@ -470,8 +470,8 @@ src="https://www.facebook.com/tr?id=1000201836168398&ev=PageView&noscript=1"
       <div class="price">
         <div class="from">De R$ <s>497,00</s> por</div>
         <div class="val">R$ <span id="price">97,00</span></div>
-        <!-- TROQUE o href pelo link do seu checkout -->
-        <a class="btn btn--lg" href="#">Começar diagnóstico agora</a>
+        <!-- link do checkout (Kiwify) -->
+        <a class="btn btn--lg" href="https://pay.kiwify.com.br/ebM8prO" data-checkout>Começar diagnóstico agora</a>
         <div class="guarantee">
           <div>
             <p>Se após receber seu plano de ação personalizado você sentir que o diagnóstico não trouxe valor, <span class="hl">devolvemos 100% do seu investimento.</span></p>
@@ -513,6 +513,16 @@ src="https://www.facebook.com/tr?id=1000201836168398&ev=PageView&noscript=1"
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var isMobile = window.innerWidth < 760;
   document.getElementById('ano').textContent = new Date().getFullYear();
+  // checkout Kiwify: leva as UTMs da visita e registra InitiateCheckout no pixel
+  document.querySelectorAll('[data-checkout]').forEach(function (a) {
+    try {
+      var utm = JSON.parse(sessionStorage.getItem('vx_utm') || '{}'), u = new URL(a.href);
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (k) { if (utm[k]) u.searchParams.set(k, utm[k]); });
+      a.href = u.toString();
+    } catch (e) {}
+    a.addEventListener('click', function () { try { if (window.fbq) fbq('track', 'InitiateCheckout', { value: 97, currency: 'BRL', content_name: 'Diagnóstico VTX.GROW' }); } catch (e) {} });
+  });
+
   // Meta Pixel: registra o Lead só para quem acabou de enviar o formulário (uma vez)
   try {
     var lid = sessionStorage.getItem('vx_lead');
