@@ -397,7 +397,23 @@
   }
 </style>
 <script>document.documentElement.classList.add('js');</script>
-<!-- PIXELS (opcional): cole aqui o Meta Pixel / Google Tag. O formulário já dispara o evento "Lead". -->
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1000201836168398');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1000201836168398&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -800,8 +816,10 @@ window.VORTEX_CONFIG = {
   UTM_KEYS.forEach(function (k) { if (params.get(k)) utm[k] = params.get(k).slice(0, 200); });
   try { sessionStorage.setItem('vx_utm', JSON.stringify(utm)); } catch (e) {}
 
+  // eventos do Meta Pixel: PageView (no <head>), IniciouFormulario (ao abrir/começar o formulário)
+  // e Lead (disparado na página de obrigado, só para quem enviou o formulário)
   function track(ev) {
-    try { if (window.fbq) fbq('track', ev); } catch (e) {}
+    try { if (window.fbq) { if (ev === 'Lead') fbq('track', 'Lead', { content_name: 'Plano de Crescimento 2027' }); else fbq('trackCustom', 'IniciouFormulario'); } } catch (e) {}
     try { if (window.gtag) gtag('event', ev === 'Lead' ? 'generate_lead' : 'begin_form'); } catch (e) {}
     try { (window.dataLayer = window.dataLayer || []).push({ event: 'vortex_' + ev.toLowerCase() }); } catch (e) {}
   }
@@ -820,7 +838,7 @@ window.VORTEX_CONFIG = {
   function focusFirst() { var i = card.querySelector('.fstep.active input:not([type=radio])'); if (i) i.focus({ preventScroll: true }); }
   function openForm(e) {
     if (e) e.preventDefault();
-    if (!opened) { opened = true; track('InitiateCheckout'); }
+    if (!opened) { opened = true; track('IniciouFormulario'); }
     if (desktop()) {
       card.scrollIntoView({ behavior: 'smooth', block: 'center' });
       card.classList.remove('flash'); void card.offsetWidth; card.classList.add('flash');
@@ -872,7 +890,7 @@ window.VORTEX_CONFIG = {
     if (s.querySelector('input[type=radio]') && !s.querySelector('input[type=radio]:checked')) { s.classList.add('err'); ok = false; }
     return ok;
   }
-  form.addEventListener('input', function (e) { var f = e.target.closest('.field'); if (f) f.classList.remove('err'); });
+  form.addEventListener('input', function (e) { if (!opened) { opened = true; track('IniciouFormulario'); } var f = e.target.closest('.field'); if (f) f.classList.remove('err'); });
   form.addEventListener('click', function (e) {
     if (e.target.closest('[data-next]')) { if (validate(cur)) show(cur + 1); }
     if (e.target.closest('[data-back]')) show(cur - 1);
@@ -899,7 +917,11 @@ window.VORTEX_CONFIG = {
     for (var k in utm) data[k] = utm[k];
     var btn = document.getElementById('submitBtn'); btn.disabled = true; btn.textContent = 'Enviando...';
     try { sessionStorage.setItem('vx_nome', data.nome.split(' ')[0]); } catch (er) {}
-    track('Lead');
+    // o Lead é registrado na página de obrigado (mais confiável que disparar antes do redirecionamento)
+    var marcado = false;
+    try { sessionStorage.setItem('vx_lead', 'lead-' + Date.now()); marcado = true; } catch (er) {}
+    if (!marcado) track('Lead');
+    try { if (window.gtag) gtag('event', 'generate_lead'); (window.dataLayer = window.dataLayer || []).push({ event: 'vortex_lead' }); } catch (er) {}
     function go() { location.href = CFG.THANK_YOU_URL; }
     if (!CFG.SHEETS_URL) { console.warn('VORTEX_CONFIG.SHEETS_URL vazio: lead não foi enviado à planilha.'); setTimeout(go, 400); return; }
     var done = false, finish = function () { if (!done) { done = true; go(); } };

@@ -307,6 +307,23 @@
     *, *::before, *::after { animation-duration: .01ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important; transition: none !important; }
   }
 </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1000201836168398');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1000201836168398&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -494,6 +511,11 @@
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var isMobile = window.innerWidth < 760;
   document.getElementById('ano').textContent = new Date().getFullYear();
+  // Meta Pixel: registra o Lead só para quem acabou de enviar o formulário (uma vez)
+  try {
+    var lid = sessionStorage.getItem('vx_lead');
+    if (lid && window.fbq) { fbq('track', 'Lead', { content_name: 'Plano de Crescimento 2027' }, { eventID: lid }); sessionStorage.removeItem('vx_lead'); }
+  } catch (e) {}
   try { var nm = sessionStorage.getItem('vx_nome'); if (nm) { document.getElementById('nomeLead').textContent = nm + ', '; document.getElementById('umTxt').textContent = 'um'; } } catch (e) {}
   document.getElementById('toTop').addEventListener('click', function (e) { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
 
