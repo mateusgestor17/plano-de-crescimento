@@ -128,9 +128,9 @@
   .tcard__tag { margin: 14px 0 12px; font: 700 11px/1.3 "Inter"; letter-spacing: .04em; text-transform: uppercase; }
   .tcard--white .tcard__tag { color: var(--blue); }
   .tcard blockquote { margin: 0 0 18px; font: 600 13.5px/1.55 "Inter"; flex: 1; }
-  .tcard__nums { display: flex; gap: 22px; margin-bottom: 20px; }
+  .tcard__nums { display: flex; flex-wrap: wrap; gap: 10px 20px; margin-bottom: 20px; }
   .tcard__nums div small { display: block; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; opacity: .75; }
-  .tcard__nums div b { font: 600 20px/1.2 "Inter Tight"; color: inherit; }
+  .tcard__nums div b { font: 600 18px/1.2 "Inter Tight"; color: inherit; white-space: nowrap; }
   .who { display: flex; align-items: center; gap: 10px; }
   .who i { width: 32px; height: 32px; border-radius: 50%; flex: none; display: grid; place-items: center; font: 600 13px/1 "Inter"; font-style: normal; background: rgba(255,255,255,.2); }
   .tcard--white .who i { background: var(--blue); color: #fff; }
@@ -410,6 +410,46 @@
     <div class="slider" data-reveal>
       <div class="slider__track" id="track">
         <article class="tcard tcard--blue">
+          <button type="button" class="tcard__shot" data-zoom="assets/img/resultados/feedback-3.jpg" aria-label="Ver print do feedback"><img src="assets/img/resultados/feedback-3.jpg" alt="Print do feedback da Show dos Toldos: vendas de 24/11 a 26/11" loading="lazy"></button>
+          <div class="tcard__body">
+          <div class="stars">★★★★★</div>
+          <div class="tcard__tag">R$ 36.378 faturados em 15 dias</div>
+          <blockquote>Com apenas R$ 580 investidos em anúncios, a Show dos Toldos fechou 7 vendas e faturou R$ 36.378 em 15 dias.</blockquote>
+          <div class="tcard__nums"><div><small>Investido</small><b>R$ 580</b></div><div><small>Faturado</small><b>R$ 36,4 mil</b></div><div><small>Retorno</small><b>62x</b></div></div>
+          <div class="who"><i>S</i><div><b>Show dos Toldos</b><small>Toldos e coberturas</small></div></div>
+          </div>
+        </article>
+        <article class="tcard tcard--white">
+          <button type="button" class="tcard__shot" data-zoom="assets/img/resultados/feedback-6.jpg" aria-label="Ver print do feedback"><img src="assets/img/resultados/feedback-6.jpg" alt="Print do feedback da Desentupidora DBM" loading="lazy"></button>
+          <div class="tcard__body">
+          <div class="stars">★★★★★</div>
+          <div class="tcard__tag">5 leads e 4 fechamentos em um dia</div>
+          <blockquote>“Recebemos 5 leads ontem e tivemos 4 fechamentos!!! Tô muito contente. Tem bastante tempo que não vejo uma conversão tão boa.”</blockquote>
+          <div class="tcard__nums"><div><small>Leads</small><b>5</b></div><div><small>Vendas</small><b>4</b></div><div><small>Conversão</small><b>80%</b></div></div>
+          <div class="who"><i>D</i><div><b>Thais · Desentupidora DBM</b><small>Desentupidora</small></div></div>
+          </div>
+        </article>
+        <article class="tcard tcard--blue">
+          <button type="button" class="tcard__shot" data-zoom="assets/img/resultados/feedback-4.jpg" aria-label="Ver print do feedback"><img src="assets/img/resultados/feedback-4.jpg" alt="Print do feedback da Toldos Rodrigues: vendas de fevereiro" loading="lazy"></button>
+          <div class="tcard__body">
+          <div class="stars">★★★★★</div>
+          <div class="tcard__tag">R$ 240 de anúncio no mês, R$ 11.250 em vendas</div>
+          <blockquote>Investindo R$ 240 no mês em anúncios, a Toldos Rodrigues fechou 6 vendas em bairros diferentes do Rio e faturou R$ 11.250.</blockquote>
+          <div class="tcard__nums"><div><small>Investido</small><b>R$ 240</b></div><div><small>Faturado</small><b>R$ 11.250</b></div><div><small>Retorno</small><b>46x</b></div></div>
+          <div class="who"><i>T</i><div><b>Toldos Rodrigues</b><small>Toldos · Rio de Janeiro</small></div></div>
+          </div>
+        </article>
+        <article class="tcard tcard--white">
+          <button type="button" class="tcard__shot" data-zoom="assets/img/resultados/feedback-5.jpg" aria-label="Ver print do feedback"><img src="assets/img/resultados/feedback-5.jpg" alt="Print do feedback da Show dos Toldos: vendas de 04/11 a 14/11" loading="lazy"></button>
+          <div class="tcard__body">
+          <div class="stars">★★★★★</div>
+          <div class="tcard__tag">+R$ 20 mil em apenas 15 dias</div>
+          <blockquote>Mais um ciclo da Show dos Toldos: R$ 480 investidos e R$ 20.510 em vendas em 15 dias.</blockquote>
+          <div class="tcard__nums"><div><small>Investido</small><b>R$ 480</b></div><div><small>Faturado</small><b>R$ 20,5 mil</b></div><div><small>Retorno</small><b>42x</b></div></div>
+          <div class="who"><i>S</i><div><b>Show dos Toldos</b><small>Toldos e coberturas</small></div></div>
+          </div>
+        </article>
+        <article class="tcard tcard--blue">
           <button type="button" class="tcard__shot" data-zoom="assets/img/resultados/feedback-1.jpg" aria-label="Ver print do feedback"><img src="assets/img/resultados/feedback-1.jpg" alt="Print do feedback da Esquadri Zen"></button>
           <div class="tcard__body">
           <div class="stars">★★★★★</div>
@@ -439,12 +479,12 @@
       <div class="carousel" id="carousel">
         <div class="carousel__floor"></div>
         <div class="ring" id="ring">
-          <figure class="ring__item"><img src="assets/img/resultados/feedback-1.jpg" alt="Feedback de cliente" loading="lazy"></figure>
-          <figure class="ring__item"><img src="assets/img/resultados/feedback-2.jpg" alt="Feedback de cliente" loading="lazy"></figure>
-          <figure class="ring__item"><img src="assets/img/resultados/feedback-1.jpg" alt="Feedback de cliente" loading="lazy"></figure>
-          <figure class="ring__item"><img src="assets/img/resultados/feedback-2.jpg" alt="Feedback de cliente" loading="lazy"></figure>
-          <figure class="ring__item"><img src="assets/img/resultados/feedback-1.jpg" alt="Feedback de cliente" loading="lazy"></figure>
-          <figure class="ring__item"><img src="assets/img/resultados/feedback-2.jpg" alt="Feedback de cliente" loading="lazy"></figure>
+          <figure class="ring__item"><img src="assets/img/resultados/feedback-1.jpg" alt="Feedback de cliente"></figure>
+          <figure class="ring__item"><img src="assets/img/resultados/feedback-2.jpg" alt="Feedback de cliente"></figure>
+          <figure class="ring__item"><img src="assets/img/resultados/feedback-3.jpg" alt="Feedback de cliente"></figure>
+          <figure class="ring__item"><img src="assets/img/resultados/feedback-4.jpg" alt="Feedback de cliente"></figure>
+          <figure class="ring__item"><img src="assets/img/resultados/feedback-5.jpg" alt="Feedback de cliente"></figure>
+          <figure class="ring__item"><img src="assets/img/resultados/feedback-6.jpg" alt="Feedback de cliente"></figure>
         </div>
       </div>
     </div>
@@ -529,10 +569,10 @@
       <div data-card><div class="sq-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-7"/></svg></div><h3>Decisões com números</h3><p>Painel de resultados com meta, investimento, custo por lead, custo por venda e retorno. <b>Você sabe o que funciona.</b></p></div>
     </div>
     <div class="nums" data-reveal>
-      <div><b>29,6x</b><small>retorno em 7 dias</small></div>
-      <div><b>200%</b><small>da meta batida em 1 mês</small></div>
-      <div><b>178</b><small>leads em 1 mês</small></div>
-      <div class="segs"><span>Esquadrias</span><span>Vidraçarias</span><span>Clínicas</span><span>Construção</span><span>Energia solar</span><span>Automotivo</span><span>B2B</span></div>
+      <div><b>R$ 36 mil</b><small>em 15 dias com R$ 580</small></div>
+      <div><b>62x</b><small>retorno sobre o anúncio</small></div>
+      <div><b>80%</b><small>de conversão em leads</small></div>
+      <div class="segs"><span>Toldos</span><span>Esquadrias</span><span>Desentupidora</span><span>Vidraçarias</span><span>Clínicas</span><span>Construção</span><span>Energia solar</span><span>Automotivo</span><span>B2B</span></div>
     </div>
     <div class="cta"><a class="btn" href="#formulario" data-open-form>Quero saber mais</a></div>
   </div>
