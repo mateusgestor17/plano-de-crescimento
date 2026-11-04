@@ -967,15 +967,32 @@ window.VORTEX_CONFIG = {
     gsap.registerPlugin(ScrollTrigger);
     gsap.from('.hero__txt > *', { opacity: 0, y: 30, duration: .9, stagger: .1, ease: 'power3.out', clearProps: 'transform,opacity', onStart: function () { document.querySelector('.hero .btn').style.transition = 'none'; }, onComplete: function () { document.querySelector('.hero .btn').style.transition = ''; } });
     gsap.from('.hform', { opacity: 0, x: 40, duration: 1.1, ease: 'power3.out', delay: .2, clearProps: 'transform,opacity' });
+    // blocos: começam escondidos e aparecem uma única vez (sem piscar)
     gsap.utils.toArray('[data-reveal]').forEach(function (el) {
-      gsap.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1, ease: 'power3.out', clearProps: 'transform', scrollTrigger: { trigger: el, start: 'top 88%' } });
+      gsap.fromTo(el, { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: .9, ease: 'power3.out', clearProps: 'transform,visibility',
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
     });
+    // números contam de 0 até o valor, uma vez
     document.querySelectorAll('[data-count]').forEach(function (el) {
       var o = { v: 0 }, end = +el.dataset.count, pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
-      gsap.to(o, { v: end, duration: 1.8, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 90%' },
+      el.textContent = pre + '0' + suf;
+      gsap.to(o, { v: end, duration: 1.8, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 90%', once: true },
         onUpdate: function () { el.textContent = pre + Math.round(o.v) + suf; } });
     });
-    ScrollTrigger.batch('[data-card]', { start: 'top 90%', onEnter: function (b) { gsap.from(b, { opacity: 0, y: 50, rotateX: -20, transformPerspective: 1000, transformOrigin: '50% 0%', duration: .9, stagger: .1, ease: 'power3.out', clearProps: 'transform' }); } });
+    // cards: escondidos desde o início, entram em sequência uma única vez.
+    // A transição de hover fica desligada durante a entrada para não travar o movimento.
+    var cards = gsap.utils.toArray('[data-card]');
+    gsap.set(cards, { autoAlpha: 0, y: 50 });
+    ScrollTrigger.batch(cards, { start: 'top 90%', once: true, onEnter: function (b) {
+      b.forEach(function (el) { el.style.transition = 'none'; });
+      gsap.to(b, { autoAlpha: 1, y: 0, duration: .8, stagger: .1, ease: 'power3.out', clearProps: 'transform,visibility',
+        onComplete: function () { b.forEach(function (el) { el.style.transition = ''; }); } });
+    } });
+    // recalcula os pontos de disparo quando imagens e fontes terminam de carregar
+    var rt; function refresh() { clearTimeout(rt); rt = setTimeout(function () { ScrollTrigger.refresh(); }, 150); }
+    document.querySelectorAll('img').forEach(function (img) { if (!img.complete) img.addEventListener('load', refresh, { once: true }); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(refresh);
+    addEventListener('load', refresh);
   }
 
 
