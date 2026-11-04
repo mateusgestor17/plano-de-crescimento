@@ -34,6 +34,7 @@ s = open(os.path.join(R, OBRIGADO, 'index.html')).read()
 s = embutir_imagens(s, '../')
 for n in ['gsap.min.js', 'ScrollTrigger.min.js']:
     s = s.replace('<script src="../assets/js/%s" defer></script>' % n, lib(n))
+    s = s.replace('<script src="../assets/js/%s"></script>' % n, lib(n))
 s = s.replace('<a href="../">', '<a href="vortex-site-previa.html">')
 assert '../assets' not in s, 'sobrou caminho na página de obrigado'
 open(os.path.join(R, 'previa/vortex-obrigado-previa.html'), 'w').write(s)
