@@ -93,6 +93,26 @@
   .hero p { margin: 16px 0 26px; max-width: 400px; font-size: 14.5px; color: var(--fg-2); }
   .btn--lg { padding: 13px 30px; font-size: 14px; }
   .note { display: block; margin-top: 12px; font-size: 12px; color: var(--fg-3); }
+  /* card de resultados reais no topo (só no celular) */
+  .hproof { display: none; position: relative; padding-left: 22px; margin-bottom: 28px; }
+  .hproof__side { position: absolute; left: 0; bottom: 4px; transform-origin: left bottom; transform: rotate(-90deg) translate(-2px, 14px); white-space: nowrap; font: 500 9.5px/1 "Inter"; letter-spacing: .32em; color: var(--fg-3); }
+  .hproof__card { position: relative; height: 214px; border-radius: 6px; overflow: hidden; background: var(--blue); clip-path: polygon(0 0, 62% 0, 70% 9%, 100% 9%, 100% 100%, 0 100%); }
+  .hproof__mark { position: absolute; right: 12px; top: 26px; width: 22px; height: 22px; object-fit: contain; opacity: .9; z-index: 2; }
+  .rs { position: absolute; inset: 0; display: grid; grid-template-columns: 1fr 104px; gap: 10px; align-items: center; padding: 30px 14px 22px 18px; opacity: 0; transform: translateX(24px); transition: opacity .6s ease, transform .6s var(--ease); }
+  .rs.on { opacity: 1; transform: none; }
+  .rs__txt small { display: block; font: 500 9.5px/1 "Inter"; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.8); margin-bottom: 8px; }
+  .rs__txt b { display: block; font: 700 34px/1 "Inter Tight"; letter-spacing: -.02em; color: #fff; }
+  .rs__txt p { margin: 6px 0 12px; font-size: 12.5px; line-height: 1.35; color: rgba(255,255,255,.92); }
+  .rs__who { display: flex; align-items: center; gap: 8px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,.3); font: 600 12px/1.2 "Inter"; color: #fff; }
+  .rs__logo { flex: none; width: 28px; height: 28px; border-radius: 50%; overflow: hidden; background: #fff; display: grid; place-items: center; padding: 3px; font: 700 12px/1 "Inter"; font-style: normal; color: var(--blue); }
+  .rs__logo img { width: 100%; height: 100%; object-fit: contain; }
+  .rs__logo--dark { background: #000; padding: 0; }
+  .rs__logo--dark img { object-fit: cover; }
+  .rs__shot { width: 104px; height: 176px; object-fit: cover; object-position: 50% 30%; border-radius: 8px; transform: rotate(4deg) translateY(6px); box-shadow: 0 14px 30px rgba(0,0,0,.4); }
+  .hproof__dots { position: absolute; left: 18px; bottom: 9px; display: flex; gap: 5px; z-index: 2; }
+  .hproof__dots span { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.4); transition: width .3s, background .3s; }
+  .hproof__dots span.on { width: 16px; border-radius: 3px; background: #fff; }
+
   /* formulário no topo (computador) */
   .hform { position: relative; padding-left: 30px; justify-self: end; width: 100%; max-width: 430px; }
   .hform__side { position: absolute; left: 0; bottom: 6px; transform-origin: left bottom; transform: rotate(-90deg) translate(-2px, 18px); white-space: nowrap; font: 500 10px/1 "Inter"; letter-spacing: .4em; color: var(--fg-3); }
@@ -325,6 +345,8 @@
      RESPONSIVO
      ========================================================= */
   @media (max-width: 900px) {
+    .hproof { display: block; }
+    .hero__grid { gap: 0; }
     .nav__links a:not(.btn) { display: none; }
     .hero__grid, .orbit-grid { grid-template-columns: 1fr; }
     .hform { display: none; }
@@ -393,10 +415,29 @@
 <!-- 1. HERO -->
 <section class="hero">
   <div class="wrap hero__grid">
+    <div class="hproof" aria-label="Resultados reais de clientes">
+      <span class="hproof__side">RESULTADO REAL</span>
+      <div class="hproof__card">
+        <img class="hproof__mark" src="assets/logo-icone.png" alt="">
+        <div class="rs on">
+          <div class="rs__txt"><small>Cliente Vortex</small><b>R$ 36.378</b><p>faturados em 15 dias com R$ 580 em anúncios</p><div class="rs__who"><i class="rs__logo rs__logo--dark"><img src="assets/img/clientes/avatar-show-dos-toldos.jpg" alt=""></i><span>Show dos Toldos</span></div></div>
+          <img class="rs__shot" src="assets/img/resultados/feedback-3.jpg" alt="Print do feedback: Show dos Toldos">
+        </div>
+        <div class="rs">
+          <div class="rs__txt"><small>Cliente Vortex</small><b>4 vendas</b><p>com 5 leads em um único dia: 80% de conversão</p><div class="rs__who"><i class="rs__logo"><img src="assets/img/clientes/avatar-dbm.png" alt=""></i><span>Desentupidora DBM</span></div></div>
+          <img class="rs__shot" src="assets/img/resultados/feedback-6.jpg" alt="Print do feedback: Desentupidora DBM">
+        </div>
+        <div class="rs">
+          <div class="rs__txt"><small>Cliente Vortex</small><b>R$ 11.250</b><p>em vendas no mês com R$ 240 de anúncio</p><div class="rs__who"><i class="rs__logo rs__logo--txt">T</i><span>Toldos Rodrigues</span></div></div>
+          <img class="rs__shot" src="assets/img/resultados/feedback-4.jpg" alt="Print do feedback: Toldos Rodrigues">
+        </div>
+        <div class="hproof__dots"><span class="on"></span><span></span><span></span></div>
+      </div>
+    </div>
     <div class="hero__txt">
-      <span class="eyebrow">Planejamento comercial 2027 · Vortex Company</span>
-      <h1>Os últimos meses foram difíceis.<br><span class="hl">2027 vai ser diferente.</span></h1>
-      <p>Em 2027, <b>vender mais vai depender de estratégia</b>, não só de anúncio. Receba uma <b>análise gratuita</b> e um <b>plano comercial de 30 dias</b> para a sua empresa.</p>
+      <span class="eyebrow">Plano de Crescimento 2027 · Vortex Company</span>
+      <h1>A Vortex traz os clientes.<br><span class="hl">Você fecha as vendas.</span></h1>
+      <p>Em 2027, quem vende mais não é quem anuncia mais, <b>é quem tem estratégia</b>. Estruture demanda, comercial e controle com quem já atendeu <b>+100 empresas</b> e gerou <b>+R$ 1 milhão em receita</b> para os clientes.</p>
       <a class="btn btn--lg" href="#formulario" data-open-form>Quero saber mais</a>
       <small class="note">*O cadastro leva 1 minuto</small>
     </div>
@@ -860,6 +901,18 @@ window.VORTEX_CONFIG = {
     setTimeout(finish, 6000);
     fetch(CFG.SHEETS_URL, { method: 'POST', mode: 'no-cors', keepalive: true, headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(data) }).then(finish, finish);
   });
+
+  /* ---------- card de resultados do topo (celular) ---------- */
+  (function () {
+    var hs = document.querySelectorAll('.rs'), dots = document.querySelectorAll('.hproof__dots span'), k = 0;
+    if (!hs.length || reduce) return;
+    setInterval(function () {
+      if (document.hidden || innerWidth > 900) return;
+      hs[k].classList.remove('on'); dots[k].classList.remove('on');
+      k = (k + 1) % hs.length;
+      hs[k].classList.add('on'); dots[k].classList.add('on');
+    }, 4000);
+  })();
 
   /* ---------- depoimentos (setas) ---------- */
   var trk = document.getElementById('track');
