@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vortex Company | Plano de Crescimento 2027 para sua empresa vender mais</title>
+<meta name="description" content="Em 2027, vender mais vai depender de estratégia. A Vortex estrutura demanda, processo comercial, estrutura e controle para sua empresa escalar. Solicite sua análise gratuita.">
+<meta name="theme-color" content="#0e0f12">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Plano de Crescimento 2027 | Vortex Company">
+<meta property="og:description" content="Demanda, conversão, estrutura e controle: o sistema para sua empresa vender mais em 2027.">
+<meta property="og:image" content="assets/logo-vortex.png">
+<link rel="icon" href="assets/logo-icone.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* =========================================================
+     CORES DA VORTEX (mesmo uso de cor da página de referência:
+     fundo escuro liso, uma cor de destaque, botões verdes)
+     ========================================================= */
+  :root {
+    --bg: #0e0f12;            /* fundo principal */
+    --bg-2: #15171c;          /* cards escuros */
+    --line: rgba(255,255,255,.08);
+    --fg: #f4f6fa;
+    --fg-2: rgba(236,240,248,.72);
+    --fg-3: rgba(236,240,248,.45);
+    --blue: #0066FF;          /* azul Vortex (único azul do site) */
+    --blue-2: #1a75ff;        /* só para hover */
+    --blue-hl: #0066FF;       /* palavras em destaque */
+    --green: #17a34a;         /* botões verdes */
+    --green-2: #22c55e;
+    --ink: #0e0f12;           /* texto na seção branca */
+    --ink-2: #4a4f5c;
+    --ease: cubic-bezier(.22, 1, .36, 1);
+    --w: 1040px;              /* largura do conteúdo */
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; overflow-x: clip; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 400 15px/1.6 "Inter", system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: clip; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  b, strong { font-weight: 600; color: var(--fg); }
+  h1, h2, h3, h4 { margin: 0; font-family: "Inter Tight", "Inter", sans-serif; font-weight: 400; letter-spacing: -.02em; }
+  .wrap { width: 100%; max-width: var(--w); margin: 0 auto; padding: 0 24px; }
+  .hl { color: var(--blue-hl); font-weight: 600; }
+  .eyebrow { display: block; font: 500 10.5px/1 "Inter", sans-serif; letter-spacing: .24em; text-transform: uppercase; color: var(--blue-hl); margin-bottom: 14px; }
+  .h2 { font-size: 28px; line-height: 1.2; }
+  .section { padding: 96px 0; position: relative; }
+  .center { text-align: center; }
+
+  /* ---------- botão verde (pílula) ---------- */
+  .btn {
+    position: relative; overflow: hidden; isolation: isolate;
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 12px 26px; border: 0; border-radius: 999px; cursor: pointer;
+    background: var(--green); color: #fff; text-decoration: none;
+    font: 500 14px/1.2 "Inter", sans-serif; text-align: center;
+    transition: background .2s, transform .2s var(--ease), box-shadow .2s;
+    box-shadow: 0 6px 20px rgba(23,163,74,.25);
+  }
+  .btn::after { content: ""; position: absolute; z-index: -1; top: 0; bottom: 0; left: -60%; width: 40%; background: linear-gradient(100deg, transparent, rgba(255,255,255,.35), transparent); transform: skewX(-20deg); animation: shine 4s ease-in-out infinite; }
+  @keyframes shine { 0%, 60% { left: -60%; } 100% { left: 130%; } }
+  .btn:hover { background: var(--green-2); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(34,197,94,.35); }
+  .btn--sm { padding: 10px 22px; font-size: 13px; }
+  .btn--block { width: 100%; }
+  .btn[disabled] { opacity: .7; cursor: wait; }
+  .cta { text-align: center; margin-top: 40px; }
+  .cta small { display: block; margin-top: 10px; font-size: 12px; color: var(--fg-2); }
+
+  /* =========================================================
+     MENU
+     ========================================================= */
+  .nav { position: sticky; top: 0; z-index: 50; transition: background .3s, border-color .3s; border-bottom: 1px solid transparent; }
+  .nav.scrolled { background: rgba(14,15,18,.86); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-color: var(--line); }
+  .nav__in { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .logo img { width: auto; height: 38px; }
+  .logo span { font: 600 14px/1 "Inter Tight", sans-serif; letter-spacing: .16em; }
+  .logo small { display: block; font-size: 8px; letter-spacing: .42em; color: var(--fg-3); margin-top: 3px; font-weight: 500; }
+  .nav__links { display: flex; align-items: center; gap: 26px; }
+  .nav__links a:not(.btn) { text-decoration: none; font-size: 13px; color: var(--fg-2); transition: color .2s; }
+  .nav__links a:not(.btn):hover { color: #fff; }
+
+  /* =========================================================
+     1. HERO
+     ========================================================= */
+  .hero { padding: 72px 0 96px; }
+  .hero__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .hero h1 { font-size: 44px; line-height: 1.08; }
+  .hero p { margin: 18px 0 28px; max-width: 420px; font-size: 15px; color: var(--fg-2); }
+  .btn--lg { padding: 14px 34px; font-size: 15px; }
+  .note { display: block; margin-top: 12px; font-size: 12px; color: var(--fg-3); }
+  .hform { position: relative; padding-left: 30px; justify-self: end; width: 100%; max-width: 440px; }
+  .hform__side { position: absolute; left: 0; bottom: 6px; transform-origin: left bottom; transform: rotate(-90deg) translate(-2px, 18px); white-space: nowrap; font: 500 10px/1 "Inter"; letter-spacing: .4em; color: var(--fg-3); }
+  .hform .form-card { border-top: 3px solid var(--blue); }
+  .form-card.flash { animation: flash 1.2s ease; }
+  @keyframes flash { 0%, 100% { box-shadow: 0 30px 80px rgba(0,0,0,.45); } 30% { box-shadow: 0 0 0 4px rgba(0,102,255,.55), 0 30px 80px rgba(0,102,255,.35); } }
+
+
+  /* =========================================================
+     2. DEPOIMENTOS
+     ========================================================= */
+  .head2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: end; margin-bottom: 30px; }
+  .head2 p { margin: 0; font-size: 13.5px; color: var(--fg-2); max-width: 400px; }
+  .slider { position: relative; }
+  .slider__track { display: grid; grid-auto-flow: column; grid-auto-columns: calc(50% - 8px); gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 4px; }
+  .slider__track::-webkit-scrollbar { display: none; }
+  .tcard { scroll-snap-align: start; border-radius: 6px; padding: 26px; display: grid; grid-template-columns: 150px 1fr; gap: 22px; align-items: start; }
+  .tcard__shot { display: block; width: 150px; aspect-ratio: 9 / 16; padding: 0; border: 0; border-radius: 8px; overflow: hidden; cursor: zoom-in; background: #000; box-shadow: 0 14px 30px rgba(0,0,0,.35); transition: transform .3s var(--ease); }
+  .tcard__shot:hover { transform: scale(1.03); }
+  .tcard__shot img { width: 100%; height: 100%; object-fit: cover; }
+  .tcard__body { display: flex; flex-direction: column; height: 100%; }
+  .tcard--blue { background: var(--blue); }
+  .tcard--white { background: #f6f7f9; color: var(--ink); }
+  .tcard--white b, .tcard--white strong { color: var(--ink); }
+  .stars { color: #ffb020; letter-spacing: 3px; font-size: 14px; }
+  .tcard__tag { margin: 14px 0 12px; font: 700 11px/1.3 "Inter"; letter-spacing: .04em; text-transform: uppercase; }
+  .tcard--white .tcard__tag { color: var(--blue); }
+  .tcard blockquote { margin: 0 0 18px; font: 600 13.5px/1.55 "Inter"; flex: 1; }
+  .tcard__nums { display: flex; gap: 22px; margin-bottom: 20px; }
+  .tcard__nums div small { display: block; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; opacity: .75; }
+  .tcard__nums div b { font: 600 20px/1.2 "Inter Tight"; color: inherit; }
+  .who { display: flex; align-items: center; gap: 10px; }
+  .who i { width: 32px; height: 32px; border-radius: 50%; flex: none; display: grid; place-items: center; font: 600 13px/1 "Inter"; font-style: normal; background: rgba(255,255,255,.2); }
+  .tcard--white .who i { background: var(--blue); color: #fff; }
+  .who b { display: block; font-size: 12.5px; color: inherit; }
+  .who small { font-size: 11px; opacity: .7; }
+  .tcard__view { margin-left: auto; padding: 7px 12px; border-radius: 999px; border: 1px solid currentColor; background: transparent; color: inherit; font: 500 11px/1 "Inter"; cursor: pointer; opacity: .85; }
+  .tcard__view:hover { opacity: 1; }
+  .slider__nav { position: absolute; right: -18px; top: 50%; transform: translateY(-50%); display: grid; gap: 6px; }
+  .slider__nav button { width: 30px; height: 30px; border-radius: 50%; border: 0; background: rgba(60,64,72,.9); color: #fff; cursor: pointer; display: grid; place-items: center; }
+  .slider__nav button:hover { background: var(--blue); }
+  .slider__nav svg { width: 14px; height: 14px; }
+
+  /* prints em carrossel 3D */
+  .prints { margin-top: 56px; }
+  .prints__title { text-align: center; font-size: 11px; color: var(--fg-3); letter-spacing: .2em; text-transform: uppercase; }
+  .carousel { position: relative; height: 470px; perspective: 1600px; cursor: grab; user-select: none; -webkit-user-select: none; touch-action: pan-y; }
+  .carousel:active { cursor: grabbing; }
+  .ring { position: absolute; left: 50%; top: 30px; width: 0; height: 0; transform-style: preserve-3d; }
+  .ring__item { position: absolute; left: -95px; top: 0; width: 190px; height: 338px; margin: 0; border-radius: 12px; overflow: hidden; background: #0a1430; border: 1px solid rgba(255,255,255,.12); backface-visibility: hidden; box-shadow: 0 24px 50px rgba(0,0,0,.55); cursor: zoom-in; -webkit-box-reflect: below 10px linear-gradient(transparent 75%, rgba(255,255,255,.14)); }
+  .ring__item img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+  .carousel__floor { position: absolute; left: 50%; bottom: 20px; width: 700px; height: 110px; margin-left: -350px; border-radius: 50%; background: radial-gradient(ellipse, rgba(0,102,255,.28), transparent 65%); filter: blur(8px); pointer-events: none; }
+
+  /* =========================================================
+     3. DOIS CAMINHOS
+     ========================================================= */
+  .paths { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 40px auto 0; max-width: 900px; text-align: left; }
+  .path { padding: 40px 36px 44px; border-radius: 6px; background: linear-gradient(170deg, rgba(0,102,255,.16) 0%, rgba(0,102,255,0) 60%), #15171c; border: 1px solid rgba(0,102,255,.12); transition: transform .35s var(--ease), border-color .3s; }
+  .path:hover { transform: translateY(-6px); border-color: rgba(0,102,255,.35); }
+  .chip-ic { display: inline-grid; place-items: center; width: 36px; height: 24px; border-radius: 999px; background: var(--blue); }
+  .chip-ic svg { width: 14px; height: 14px; color: #fff; }
+  .path h3 { margin: 20px 0 22px; font-size: 25px; line-height: 1.12; }
+  .path h3 b { font-weight: 600; }
+  .arrows { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  .arrows li { display: flex; gap: 12px; font-size: 13px; line-height: 1.45; color: var(--fg); }
+  .arrows li::before { content: ""; flex: none; width: 14px; height: 14px; margin-top: 2px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230066FF' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17L17 7M8 7h9v9'/%3E%3C/svg%3E") center/contain no-repeat; }
+
+  /* =========================================================
+     4. O QUE ENTREGAMOS (seção branca)
+     ========================================================= */
+  .light { background: #fff; color: var(--ink); }
+  .light b, .light strong { color: var(--ink); }
+  .light .eyebrow { color: var(--ink-2); }
+  .light .hl { color: var(--blue); }
+  .light .head2 p { color: var(--ink-2); }
+  .phases { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .phase { border: 1px solid #dfe2e8; border-radius: 6px; overflow: hidden; background: #fff; transition: transform .35s var(--ease), box-shadow .35s; }
+  .phase:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(14,15,18,.1); }
+  .phase__img { position: relative; height: 150px; overflow: hidden; background: var(--blue); display: grid; place-items: center; }
+  .phase__img::before { content: ""; position: absolute; inset: -40%; background: repeating-conic-gradient(from 0deg, rgba(255,255,255,.07) 0 6deg, transparent 6deg 18deg); animation: spinbg 40s linear infinite; }
+  @keyframes spinbg { to { transform: rotate(360deg); } }
+  .phase__img svg { position: relative; width: 46px; height: 46px; color: #fff; filter: drop-shadow(0 6px 16px rgba(0,0,0,.3)); }
+  .phase__img span { position: absolute; right: 12px; bottom: 6px; font: 600 54px/1 "Inter Tight"; color: rgba(255,255,255,.14); }
+  .phase__body { padding: 22px 18px 24px; }
+  .phase__body small { display: block; font: 500 9.5px/1 "Inter"; letter-spacing: .26em; text-transform: uppercase; color: var(--ink-2); margin-bottom: 8px; }
+  .phase__body h3 { font-size: 16px; font-weight: 600; line-height: 1.25; margin-bottom: 16px; color: var(--ink); }
+  .light .arrows li { color: var(--ink); font-size: 12px; }
+  .light .arrows li::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230066FF' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17L17 7M8 7h9v9'/%3E%3C/svg%3E"); }
+
+  /* =========================================================
+     5. POR QUE A VORTEX
+     ========================================================= */
+  .why { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 40px; text-align: left; }
+  .why > div { padding: 28px 24px; border-radius: 6px; background: var(--bg-2); border: 1px solid var(--line); }
+  .sq-ic { width: 34px; height: 34px; border-radius: 6px; display: grid; place-items: center; background: rgba(0,102,255,.16); color: var(--blue-hl); margin-bottom: 18px; }
+  .sq-ic svg { width: 17px; height: 17px; }
+  .why h3 { font: 600 13.5px/1.3 "Inter"; letter-spacing: 0; margin-bottom: 8px; }
+  .why p { margin: 0; font-size: 12.5px; color: var(--fg-2); }
+  .nums { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 22px; margin-top: 30px; text-align: left; }
+  .nums div b { display: block; font: 500 20px/1.2 "Inter Tight"; }
+  .nums div small { font-size: 11px; color: var(--fg-3); }
+  .segs { display: flex; flex-wrap: wrap; gap: 8px; }
+  .segs span { padding: 7px 12px; border-radius: 999px; border: 1px solid var(--line); font-size: 11.5px; color: var(--fg-2); }
+
+  /* =========================================================
+     6. JORNADA DO CLIENTE (órbita)
+     ========================================================= */
+  .orbit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .orbit-grid h2 { font-size: 28px; line-height: 1.2; }
+  .orbit-grid > div > p { margin: 16px 0 26px; font-size: 14.5px; color: var(--fg-2); max-width: 400px; }
+  .checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; max-width: 420px; }
+  .checks li { display: flex; gap: 10px; font-size: 13px; color: var(--fg-2); transition: color .3s; }
+  .checks li::before { content: "✓"; color: var(--blue-hl); font-weight: 700; }
+  .checks li b { color: var(--fg); }
+  .checks li.on { color: var(--fg); }
+  .wheel { --r: 165px; position: relative; width: 440px; height: 440px; margin: 0 auto; }
+  .wheel__ring { position: absolute; inset: 55px; border-radius: 50%; border: 1px dashed rgba(0,102,255,.25); animation: spin 50s linear infinite; }
+  .wheel__glow { position: absolute; inset: 55px; border-radius: 50%; background: conic-gradient(from 0deg, transparent 0 75%, rgba(0,102,255,.55) 98%, transparent 100%); -webkit-mask: radial-gradient(circle, transparent 63%, #000 64%, #000 66%, transparent 67%); mask: radial-gradient(circle, transparent 63%, #000 64%, #000 66%, transparent 67%); animation: spin 6s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .wheel__core { position: absolute; left: 50%; top: 50%; width: 132px; height: 132px; margin: -66px 0 0 -66px; border-radius: 50%; background: var(--blue); display: grid; place-items: center; box-shadow: 0 0 0 10px rgba(0,102,255,.08), 0 0 60px rgba(0,102,255,.45); }
+  .wheel__core img { width: 64px; height: 64px; object-fit: contain; }
+  .node { position: absolute; left: 50%; top: 50%; width: 76px; height: 76px; margin: -38px 0 0 -38px; border-radius: 50%; background: #1d2027; border: 1px solid rgba(255,255,255,.06); display: grid; place-content: center; text-align: center; transform: rotate(var(--a)) translate(var(--r)) rotate(calc(-1 * var(--a))); transition: background .4s, box-shadow .4s; }
+  .node svg { width: 22px; height: 22px; margin: 0 auto 4px; color: var(--fg-2); transition: color .4s; }
+  .node span { font: 500 9.5px/1.1 "Inter"; color: var(--fg-2); }
+  .node.on { background: var(--blue); box-shadow: 0 0 0 6px rgba(0,102,255,.18), 0 0 30px rgba(0,102,255,.6); }
+  .node.on svg, .node.on span { color: #fff; }
+
+  /* =========================================================
+     7. FAQ
+     ========================================================= */
+  .faq { max-width: 560px; margin: 30px auto 0; display: grid; gap: 6px; text-align: left; }
+  .faq details { border-radius: 6px; background: #17191e; transition: background .3s; }
+  .faq details[open] { background: #1c1f26; }
+  .faq summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 12px; padding: 15px 16px; font-size: 12.5px; font-weight: 500; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::before { content: "+"; flex: none; width: 14px; text-align: center; color: var(--fg-3); font-size: 16px; line-height: 1; transition: transform .3s var(--ease); }
+  .faq details[open] summary::before { transform: rotate(45deg); color: var(--blue-hl); }
+  .faq details p { margin: 0; padding: 0 16px 16px 42px; font-size: 12.5px; color: var(--fg-2); }
+
+  /* =========================================================
+     RODAPÉ
+     ========================================================= */
+  footer { padding: 30px 0 34px; }
+  .foot { display: flex; align-items: center; justify-content: space-between; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+  .foot img { width: 64px; height: 64px; object-fit: contain; }
+  .foot a { text-decoration: none; font-size: 13px; display: inline-flex; align-items: center; gap: 10px; }
+  .foot a::before { content: ""; width: 7px; height: 7px; border-left: 2px solid var(--blue-hl); border-top: 2px solid var(--blue-hl); transform: rotate(45deg) translateY(2px); }
+  .copy { text-align: center; margin-top: 16px; font-size: 10.5px; color: var(--fg-3); }
+  .copy a { color: var(--blue-hl); text-decoration: none; margin-left: 10px; }
+
+  /* =========================================================
+     FORMULÁRIO (abre em janela ao clicar nos botões)
+     ========================================================= */
+  .modal { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center; padding: 20px; background: rgba(5,6,9,.78); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+  .modal.open { display: flex; animation: fadeIn .3s ease; }
+  @keyframes fadeIn { from { opacity: 0; } }
+  .form-card { position: relative; width: 100%; border-radius: 8px; padding: 28px 26px 22px; background: #15171c; border: 1px solid rgba(255,255,255,.07); box-shadow: 0 30px 80px rgba(0,0,0,.45); }
+  .modal .form-card { max-width: 460px; max-height: calc(100vh - 40px); overflow-y: auto; animation: popIn .45s var(--ease); }
+  @keyframes popIn { from { opacity: 0; transform: translateY(24px) scale(.97); } }
+  .form-close { display: none; position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; border-radius: 50%; border: 0; background: rgba(255,255,255,.06); color: var(--fg-2); font-size: 18px; cursor: pointer; }
+  .modal .form-close { display: block; }
+  .form-close:hover { background: rgba(255,255,255,.12); color: #fff; }
+  .form-card h2 { font-size: 19px; line-height: 1.25; padding-right: 30px; }
+  .form-card .fsub { margin: 6px 0 0; font-size: 12.5px; color: var(--fg-2); }
+  .progress { margin: 20px 0 6px; height: 4px; border-radius: 4px; background: rgba(255,255,255,.08); overflow: hidden; }
+  .progress span { display: block; height: 100%; width: 0; background: var(--blue); transition: width .45s var(--ease); }
+  .progress-label { display: flex; justify-content: space-between; font-size: 10.5px; color: var(--fg-3); letter-spacing: .06em; text-transform: uppercase; }
+  .fstep { display: none; animation: stepIn .4s var(--ease); }
+  .fstep.active { display: block; }
+  @keyframes stepIn { from { opacity: 0; transform: translateX(20px); } }
+  .fstep h3 { font: 600 15px/1.35 "Inter"; letter-spacing: 0; margin: 18px 0 12px; }
+  .field { margin-bottom: 11px; }
+  .field label { display: block; font-size: 12px; font-weight: 500; color: var(--fg-2); margin-bottom: 6px; }
+  .field input { width: 100%; padding: 13px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,.12); background: #0e0f12; color: #fff; font: 400 15px/1.2 "Inter"; outline: none; transition: border-color .2s, box-shadow .2s; }
+  .field input::placeholder { color: rgba(236,240,248,.32); }
+  .field input:focus { border-color: var(--blue-2); box-shadow: 0 0 0 3px rgba(0,102,255,.2); }
+  .field.err input { border-color: #ff5d6c; }
+  .ferr { display: none; color: #ff7a86; font-size: 11.5px; margin-top: 5px; }
+  .field.err .ferr, .fstep.err > .ferr { display: block; }
+  .hint { font-size: 11px; color: var(--fg-3); margin-top: 5px; }
+  .opts { display: grid; gap: 7px; }
+  .opts--2 { grid-template-columns: 1fr 1fr; }
+  .opt { position: relative; }
+  .opt input { position: absolute; opacity: 0; pointer-events: none; }
+  .opt span { display: flex; align-items: center; gap: 10px; padding: 11px 12px; border-radius: 8px; cursor: pointer; border: 1px solid rgba(255,255,255,.1); background: #0e0f12; font-size: 13px; line-height: 1.3; transition: border-color .2s, background .2s; }
+  .opt span::before { content: ""; flex: none; width: 15px; height: 15px; border-radius: 50%; border: 2px solid var(--fg-3); transition: all .2s; }
+  .opt:hover span { border-color: var(--blue-2); }
+  .opt input:checked + span { border-color: var(--green-2); background: rgba(34,197,94,.08); }
+  .opt input:checked + span::before { border-color: var(--green-2); background: var(--green-2); box-shadow: inset 0 0 0 3px #0e0f12; }
+  .opt input:focus-visible + span { box-shadow: 0 0 0 3px rgba(0,102,255,.4); }
+  .factions { display: flex; gap: 8px; margin-top: 16px; }
+  .back { flex: none; padding: 0 16px; border-radius: 999px; border: 1px solid rgba(255,255,255,.14); background: transparent; color: var(--fg-2); font: 500 12.5px/1 "Inter"; cursor: pointer; }
+  .back:hover { color: #fff; }
+  .secure { text-align: center; margin-top: 14px; font-size: 11px; color: var(--fg-3); }
+  .sr, .hp { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .hp { left: -9999px; }
+
+  .lightbox { position: fixed; inset: 0; z-index: 200; display: none; place-items: center; padding: 24px; background: rgba(5,6,9,.92); }
+  .lightbox.open { display: grid; animation: fadeIn .25s; }
+  .lightbox img { max-height: 88vh; max-width: 92vw; border-radius: 12px; }
+  .lightbox button { position: absolute; top: 18px; right: 18px; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(255,255,255,.1); color: #fff; font-size: 20px; cursor: pointer; }
+
+  .sticky-cta { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 60; display: none; transform: translateY(140%); transition: transform .4s var(--ease); }
+  .sticky-cta.show { transform: none; }
+  .sticky-cta .btn { width: 100%; padding: 15px; box-shadow: 0 10px 30px rgba(0,0,0,.5); }
+
+  .js [data-reveal] { opacity: 0; }
+
+  /* =========================================================
+     RESPONSIVO
+     ========================================================= */
+  @media (max-width: 900px) {
+    .nav__links a:not(.btn) { display: none; }
+    .hero__grid, .orbit-grid { grid-template-columns: 1fr; }
+    .hform { display: none; }
+    .phases { grid-template-columns: 1fr 1fr; }
+    .why { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    .section { padding: 72px 0; }
+    .hero { padding: 40px 0 70px; }
+    .hero h1 { font-size: 31px; }
+    .hero p { font-size: 14.5px; }
+    .h2, .orbit-grid h2 { font-size: 23px; }
+    .head2 { grid-template-columns: 1fr; gap: 12px; }
+    .slider__track { grid-auto-columns: 92%; }
+    .tcard { grid-template-columns: 1fr; }
+    .tcard__shot { width: 100%; aspect-ratio: 4 / 5; }
+    .tcard__shot img { object-position: 50% 35%; }
+    .slider__nav { display: none; }
+    .paths { grid-template-columns: 1fr; }
+    .path h3 { font-size: 22px; }
+    .phases { grid-template-columns: 1fr; }
+    .wheel { --r: 120px; width: 320px; height: 320px; }
+    .wheel__ring, .wheel__glow { inset: 40px; }
+    .wheel__core { width: 100px; height: 100px; margin: -50px 0 0 -50px; }
+    .wheel__core img { width: 46px; height: 46px; }
+    .node { width: 62px; height: 62px; margin: -31px 0 0 -31px; }
+    .node svg { width: 18px; height: 18px; }
+    .node span { font-size: 8.5px; }
+    .carousel { height: 400px; }
+    .ring__item { width: 160px; height: 284px; left: -80px; }
+    .opts--2 { grid-template-columns: 1fr; }
+    .modal { padding: 0; align-items: flex-end; }
+    .modal .form-card { max-height: 94vh; border-radius: 16px 16px 0 0; max-width: none; }
+    .sticky-cta { display: block; }
+    footer { padding-bottom: 96px; }
+    .nums { justify-content: flex-start; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .js [data-reveal] { opacity: 1; }
+  }
+</style>
+<script>document.documentElement.classList.add('js');</script>
+<!-- PIXELS (opcional): cole aqui o Meta Pixel / Google Tag. O formulário já dispara o evento "Lead". -->
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav__in">
+    <a class="logo" href="#topo" aria-label="Vortex Company — início"><img src="assets/logo-horizontal.png" alt="Vortex Company" width="128" height="39"></a>
+    <nav class="nav__links">
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#para-quem">Para quem é</a>
+      <a href="#o-que-fazemos">O que fazemos</a>
+      <a href="#por-que">Por que a Vortex</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn--sm" href="#formulario" data-open-form>Quero saber mais</a>
+    </nav>
+  </div>
+</header>
+
+<main id="topo">
+
+<!-- 1. HERO -->
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div class="hero__txt">
+      <span class="eyebrow">Planejamento comercial 2027 · Vortex Company</span>
+      <h1>Os últimos meses foram difíceis.<br><span class="hl">2027 vai ser diferente.</span></h1>
+      <p>Em 2027, <b>vender mais vai depender de estratégia</b>, não só de anúncio. Receba uma <b>análise gratuita</b> e um <b>plano comercial de 30 dias</b> para a sua empresa.</p>
+      <a class="btn btn--lg" href="#formulario" data-open-form>Quero saber mais</a>
+      <small class="note">*O cadastro leva 1 minuto</small>
+    </div>
+    <div class="hform" id="hform">
+      <span class="hform__side">ANÁLISE GRATUITA</span>
+<div class="form-card" id="formulario">
+    <button type="button" class="form-close" data-close aria-label="Fechar">×</button>
+    <h2 id="formTitle">Receba seu <span class="hl">Plano de Crescimento 2027</span></h2>
+    <p class="fsub">Leva menos de 1 minuto. Um especialista entra em contato em até 12h.</p>
+    <div class="progress" aria-hidden="true"><span id="bar"></span></div>
+    <div class="progress-label"><span id="stepLabel">Etapa 1 de 6</span><span id="stepPct">0%</span></div>
+    <form id="leadForm" novalidate>
+      <div class="hp" aria-hidden="true"><label>Não preencha <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+
+      <div class="fstep active" data-step="1">
+        <h3>Vamos começar. Como podemos te chamar?</h3>
+        <div class="field"><label for="f-nome">Qual é o seu nome?</label><input id="f-nome" name="nome" type="text" autocomplete="name" placeholder="Seu nome completo" required maxlength="80"><div class="ferr">Digite seu nome.</div></div>
+        <div class="field"><label for="f-whats">Qual é o seu WhatsApp?</label><input id="f-whats" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="(00) 00000-0000" required maxlength="16"><div class="ferr">Digite um WhatsApp válido com DDD.</div></div>
+        <div class="field"><label for="f-empresa">Qual é o nome da sua empresa?</label><input id="f-empresa" name="empresa" type="text" autocomplete="organization" placeholder="Nome da empresa" required maxlength="100"><div class="ferr">Digite o nome da empresa.</div></div>
+        <div class="factions"><button type="button" class="btn btn--block" data-next>Continuar</button></div>
+      </div>
+
+      <div class="fstep" data-step="2">
+        <h3>Em qual segmento sua empresa atua?</h3>
+        <div class="field"><label for="f-seg" class="sr">Segmento</label><input id="f-seg" name="segmento" type="text" placeholder="Ex.: clínica, vidraçaria, energia solar..." required maxlength="100"><div class="hint">Clínica, construção, vidraçaria, esquadrias, serviços automotivos, energia solar, serviços B2B etc.</div><div class="ferr">Conte qual é o seu segmento.</div></div>
+        <div class="factions"><button type="button" class="back" data-back>Voltar</button><button type="button" class="btn btn--block" data-next>Continuar</button></div>
+      </div>
+
+      <div class="fstep" data-step="3">
+        <h3>Qual dessas situações mais representa o momento da sua empresa hoje?</h3>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="desafio" value="Preciso gerar mais clientes e oportunidades"><span>Preciso gerar mais clientes e oportunidades</span></label>
+          <label class="opt"><input type="radio" name="desafio" value="Dependo muito de indicação"><span>Dependo muito de indicação</span></label>
+          <label class="opt"><input type="radio" name="desafio" value="Já anuncio, mas os resultados são inconsistentes"><span>Já anuncio, mas os resultados são inconsistentes</span></label>
+          <label class="opt"><input type="radio" name="desafio" value="Minha empresa cresceu, mas marketing e comercial estão desorganizados"><span>Minha empresa cresceu, mas marketing e comercial estão desorganizados</span></label>
+          <label class="opt"><input type="radio" name="desafio" value="Quero crescer, mas não sei exatamente o que precisa ser corrigido"><span>Quero crescer, mas não sei exatamente o que precisa ser corrigido</span></label>
+        </div>
+        <div class="ferr">Escolha uma opção.</div>
+        <div class="factions"><button type="button" class="back" data-back>Voltar</button></div>
+      </div>
+
+      <div class="fstep" data-step="4">
+        <h3>Qual é aproximadamente o faturamento mensal da sua empresa?</h3>
+        <div class="opts opts--2">
+          <label class="opt"><input type="radio" name="faturamento" value="Até R$30 mil"><span>Até R$30 mil</span></label>
+          <label class="opt"><input type="radio" name="faturamento" value="R$30 mil a R$60 mil"><span>R$30 mil a R$60 mil</span></label>
+          <label class="opt"><input type="radio" name="faturamento" value="R$60 mil a R$100 mil"><span>R$60 mil a R$100 mil</span></label>
+          <label class="opt"><input type="radio" name="faturamento" value="R$100 mil a R$200 mil"><span>R$100 mil a R$200 mil</span></label>
+          <label class="opt"><input type="radio" name="faturamento" value="R$200 mil a R$500 mil"><span>R$200 mil a R$500 mil</span></label>
+          <label class="opt"><input type="radio" name="faturamento" value="Acima de R$500 mil"><span>Acima de R$500 mil</span></label>
+        </div>
+        <div class="ferr">Escolha uma opção.</div>
+        <div class="factions"><button type="button" class="back" data-back>Voltar</button></div>
+      </div>
+
+      <div class="fstep" data-step="5">
+        <h3>Se começassem a entrar mais oportunidades nos próximos meses, sua empresa conseguiria atender?</h3>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="capacidade" value="Sim, temos estrutura para crescer"><span>Sim, temos estrutura para crescer</span></label>
+          <label class="opt"><input type="radio" name="capacidade" value="Sim, mas precisaríamos aumentar um pouco a capacidade"><span>Sim, mas precisaríamos aumentar um pouco a capacidade</span></label>
+          <label class="opt"><input type="radio" name="capacidade" value="Hoje já estamos próximos do limite"><span>Hoje já estamos próximos do limite</span></label>
+        </div>
+        <div class="ferr">Escolha uma opção.</div>
+        <div class="factions"><button type="button" class="back" data-back>Voltar</button></div>
+      </div>
+
+      <div class="fstep" data-step="6">
+        <h3>Quando você gostaria de começar a trabalhar o crescimento da empresa?</h3>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="momento" value="Imediatamente"><span>Imediatamente</span></label>
+          <label class="opt"><input type="radio" name="momento" value="Em até 30 dias"><span>Em até 30 dias</span></label>
+          <label class="opt"><input type="radio" name="momento" value="Em até 90 dias"><span>Em até 90 dias</span></label>
+        </div>
+        <div class="ferr">Escolha uma opção.</div>
+        <div class="factions"><button type="button" class="back" data-back>Voltar</button><button type="submit" class="btn btn--block" id="submitBtn">Quero meu plano 2027</button></div>
+      </div>
+    </form>
+    <div class="secure">🔒 Seus dados estão seguros. Não enviamos spam.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. DEPOIMENTOS -->
+<section class="section" id="depoimentos" style="padding-top:20px">
+  <div class="wrap">
+    <div class="head2" data-reveal>
+      <div><span class="eyebrow">Depoimentos</span><h2 class="h2">Empresas que cresceram<br>com o <span class="hl">método Vortex</span></h2></div>
+      <p>Resultados reais de clientes que decidiram trocar o improviso por estratégia e transformaram investimento em faturamento.</p>
+    </div>
+    <div class="slider" data-reveal>
+      <div class="slider__track" id="track">
+        <article class="tcard tcard--blue">
+          <button type="button" class="tcard__shot" data-zoom="assets/img/resultados/feedback-1.jpg" aria-label="Ver print do feedback"><img src="assets/img/resultados/feedback-1.jpg" alt="Print do feedback da Esquadri Zen"></button>
+          <div class="tcard__body">
+          <div class="stars">★★★★★</div>
+          <div class="tcard__tag">De R$ 412 investidos para R$ 12.193 faturados</div>
+          <blockquote>“Iniciamos o projeto no dia 23/08. Em apenas 7 dias de campanha, com R$ 412 de investimento, tivemos um retorno de R$ 12.193 em faturamento.”</blockquote>
+          <div class="tcard__nums"><div><small>Retorno</small><b>29,6x</b></div><div><small>Leads</small><b>15</b></div><div><small>Prazo</small><b>7 dias</b></div></div>
+          <div class="who"><i>E</i><div><b>Esquadri Zen</b><small>Esquadrias premium</small></div></div>
+          </div>
+        </article>
+        <article class="tcard tcard--white">
+          <button type="button" class="tcard__shot" data-zoom="assets/img/resultados/feedback-2.jpg" aria-label="Ver print do feedback"><img src="assets/img/resultados/feedback-2.jpg" alt="Print do feedback de agosto"></button>
+          <div class="tcard__body">
+          <div class="stars">★★★★★</div>
+          <div class="tcard__tag">Meta de faturamento batida em 200%</div>
+          <blockquote>“Tivemos um investimento total de R$ 810,24 e um retorno em faturamento de R$ 52.000. A meta era R$ 26 mil: batemos o dobro no mês de agosto.”</blockquote>
+          <div class="tcard__nums"><div><small>Retorno</small><b>64x</b></div><div><small>Leads</small><b>178</b></div><div><small>Meta</small><b>200%</b></div></div>
+          <div class="who"><i>V</i><div><b>Cliente Vortex</b><small>Resultado de agosto</small></div></div>
+          </div>
+        </article>
+      </div>
+      <div class="slider__nav"><button type="button" id="sPrev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" id="sNext" aria-label="Próximo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg></button></div>
+    </div>
+
+    <!-- prints em carrossel 3D: troque/adicione imagens em assets/img/resultados/ -->
+    <div class="prints">
+      <div class="prints__title">Prints reais · arraste para girar</div>
+      <div class="carousel" id="carousel">
+        <div class="carousel__floor"></div>
+        <div class="ring" id="ring">
+          <figure class="ring__item"><img src="assets/img/resultados/feedback-1.jpg" alt="Feedback de cliente" loading="lazy"></figure>
+          <figure class="ring__item"><img src="assets/img/resultados/feedback-2.jpg" alt="Feedback de cliente" loading="lazy"></figure>
+          <figure class="ring__item"><img src="assets/img/resultados/feedback-1.jpg" alt="Feedback de cliente" loading="lazy"></figure>
+          <figure class="ring__item"><img src="assets/img/resultados/feedback-2.jpg" alt="Feedback de cliente" loading="lazy"></figure>
+          <figure class="ring__item"><img src="assets/img/resultados/feedback-1.jpg" alt="Feedback de cliente" loading="lazy"></figure>
+          <figure class="ring__item"><img src="assets/img/resultados/feedback-2.jpg" alt="Feedback de cliente" loading="lazy"></figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta"><a class="btn" href="#formulario" data-open-form>Quero saber mais</a><small>O cadastro leva 1 minuto</small></div>
+  </div>
+</section>
+
+<!-- 3. DOIS CAMINHOS (para quem é) -->
+<section class="section center" id="para-quem" style="padding-top:40px">
+  <div class="wrap">
+    <h2 class="h2" data-reveal>Organizar o que você já tem<br>ou montar do zero: <span class="hl">você escolhe.</span></h2>
+    <div class="paths">
+      <div class="path" data-card>
+        <span class="chip-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></span>
+        <h3>Já tenho clientes.<br><b>Quero vender mais.</b></h3>
+        <ul class="arrows">
+          <li>Demanda qualificada chegando todos os meses</li>
+          <li>Processo comercial padronizado para todo o time</li>
+          <li>Follow-up estruturado: nenhum contato esquecido</li>
+          <li>Visibilidade real de cada etapa do funil</li>
+          <li>Metas definidas com base em dados</li>
+        </ul>
+      </div>
+      <div class="path" data-card>
+        <span class="chip-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></span>
+        <h3>Dependo de indicação,<br>quero um sistema de vendas</h3>
+        <ul class="arrows">
+          <li>Processo comercial desenhado do zero</li>
+          <li>Roteiros de atendimento e cadências de contato</li>
+          <li>Ferramentas e automações implementadas</li>
+          <li>Sistema de indicação para o ciclo girar sozinho</li>
+          <li>Indicadores e rotina de gestão para crescer com controle</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cta"><a class="btn" href="#formulario" data-open-form>Quero saber mais</a><small>O cadastro leva 1 minuto</small></div>
+  </div>
+</section>
+
+<!-- 4. O QUE ENTREGAMOS (fundo branco) -->
+<section class="section light" id="o-que-fazemos">
+  <div class="wrap">
+    <div class="head2" data-reveal>
+      <div><span class="eyebrow">O que entregamos</span><h2 class="h2">Do diagnóstico ao<br><span class="hl">sistema de vendas funcionando.</span></h2></div>
+      <p>Todo projeto começa com uma análise da realidade da sua empresa. O plano de 30 dias é montado com base no que esse diagnóstico revela.</p>
+    </div>
+    <div class="phases">
+      <div class="phase" data-card>
+        <div class="phase__img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg><span>01</span></div>
+        <div class="phase__body"><small>Pilar 1</small><h3>Demanda</h3>
+          <ul class="arrows"><li>Análise de público e canais</li><li>Anúncios para atrair quem compra</li><li>Mensagens que geram interesse real</li><li>Leads qualificados todo mês</li></ul></div>
+      </div>
+      <div class="phase" data-card>
+        <div class="phase__img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h18l-7 8.5V19l-4 2v-8.5z"/></svg><span>02</span></div>
+        <div class="phase__body"><small>Pilar 2</small><h3>Conversão</h3>
+          <ul class="arrows"><li>Processo comercial planejado</li><li>Roteiros de atendimento</li><li>Cadências de follow-up</li><li>Funil de vendas organizado</li></ul></div>
+      </div>
+      <div class="phase" data-card>
+        <div class="phase__img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span>03</span></div>
+        <div class="phase__body"><small>Pilar 3</small><h3>Estrutura</h3>
+          <ul class="arrows"><li>Pessoas, processos e ferramentas</li><li>Operação pronta para mais demanda</li><li>Retenção de clientes</li><li>Sistema de indicação</li></ul></div>
+      </div>
+      <div class="phase" data-card>
+        <div class="phase__img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-7"/></svg><span>04</span></div>
+        <div class="phase__body"><small>Pilar 4</small><h3>Controle</h3>
+          <ul class="arrows"><li>Indicadores claros de venda</li><li>Painel de resultados mensal</li><li>Otimização contínua</li><li>Crescimento com previsibilidade</li></ul></div>
+      </div>
+    </div>
+    <div class="cta"><a class="btn" href="#formulario" data-open-form>Quero saber mais</a></div>
+  </div>
+</section>
+
+<!-- 5. POR QUE A VORTEX -->
+<section class="section center" id="por-que">
+  <div class="wrap">
+    <span class="eyebrow" data-reveal>Por que a Vortex</span>
+    <h2 class="h2" data-reveal><span class="hl">Um sistema de escala,</span> não só<br>mais um anúncio.</h2>
+    <div class="why">
+      <div data-card><div class="sq-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 20V10"/></svg></div><h3>Marketing e vendas integrados</h3><p>Não paramos no lead. Estruturamos a jornada <b>de ponta a ponta</b>: da geração de demanda ao fechamento da venda.</p></div>
+      <div data-card><div class="sq-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></div><h3>Jornada completa do cliente</h3><p>Descoberta, atração, consideração, conversão, retenção e indicação. <b>Um ciclo que gira</b> e traz clientes novos sozinho.</p></div>
+      <div data-card><div class="sq-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-7"/></svg></div><h3>Decisões com números</h3><p>Painel de resultados com meta, investimento, custo por lead, custo por venda e retorno. <b>Você sabe o que funciona.</b></p></div>
+    </div>
+    <div class="nums" data-reveal>
+      <div><b>29,6x</b><small>retorno em 7 dias</small></div>
+      <div><b>200%</b><small>da meta batida em 1 mês</small></div>
+      <div><b>178</b><small>leads em 1 mês</small></div>
+      <div class="segs"><span>Esquadrias</span><span>Vidraçarias</span><span>Clínicas</span><span>Construção</span><span>Energia solar</span><span>Automotivo</span><span>B2B</span></div>
+    </div>
+    <div class="cta"><a class="btn" href="#formulario" data-open-form>Quero saber mais</a></div>
+  </div>
+</section>
+
+<!-- 6. JORNADA DO CLIENTE -->
+<section class="section" id="jornada">
+  <div class="wrap orbit-grid">
+    <div data-reveal>
+      <h2>Jornada do cliente<br><span class="hl">do início ao fim</span></h2>
+      <p>Cuidamos de cada etapa para que a sua empresa não dependa de sorte, nem de mês bom, para vender.</p>
+      <ul class="checks" id="checks">
+        <li><span><b>Descoberta e atração:</b> o cliente certo conhece sua empresa e se interessa.</span></li>
+        <li><span><b>Consideração:</b> ele compara e encontra autoridade e confiança em você.</span></li>
+        <li><span><b>Conversão:</b> processo comercial que transforma interesse em venda.</span></li>
+        <li><span><b>Retenção e indicação:</b> o cliente volta a comprar e indica novos clientes.</span></li>
+      </ul>
+    </div>
+    <div class="wheel" id="wheel" data-reveal>
+      <div class="wheel__ring"></div><div class="wheel__glow"></div>
+      <div class="wheel__core"><img src="assets/logo-icone.png" alt="Vortex"></div>
+      <div class="node" style="--a:-90deg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg><span>Descoberta</span></div>
+      <div class="node" style="--a:-30deg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 3v8a6 6 0 0 0 12 0V3"/><path d="M6 7h4M14 7h4"/></svg><span>Atração</span></div>
+      <div class="node" style="--a:30deg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.5 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/></svg><span>Consideração</span></div>
+      <div class="node" style="--a:90deg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span>Conversão</span></div>
+      <div class="node" style="--a:150deg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg><span>Retenção</span></div>
+      <div class="node" style="--a:210deg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg><span>Indicação</span></div>
+    </div>
+  </div>
+  <div class="wrap"><div class="cta"><a class="btn" href="#formulario" data-open-form>Quero saber mais</a></div></div>
+</section>
+
+<!-- 7. FAQ -->
+<section class="section center" id="faq">
+  <div class="wrap">
+    <span class="eyebrow" data-reveal>FAQ</span>
+    <h2 class="h2" data-reveal><span class="hl">Tudo sobre o Plano de</span><br>Crescimento 2027.</h2>
+    <div class="faq">
+      <details><summary>A análise é gratuita mesmo?</summary><p>Sim. Você preenche o formulário, um especialista da Vortex entra em contato e analisa o momento da sua empresa sem custo e sem compromisso.</p></details>
+      <details><summary>O que acontece depois que eu preencher o formulário?</summary><p>Em até 12h um especialista chama você por ligação ou WhatsApp para entender o seu negócio. A partir disso, montamos o diagnóstico e o plano comercial de 30 dias.</p></details>
+      <details><summary>A Vortex é uma agência de tráfego?</summary><p>Não. Anúncio é só uma parte. Trabalhamos o sistema completo de crescimento: demanda, conversão, estrutura e controle. É isso que faz o investimento em marketing virar venda.</p></details>
+      <details><summary>Para que tipo de empresa é indicado?</summary><p>Para empresas que já vendem e querem crescer com organização, como clínicas, construtoras, vidraçarias, esquadrias, serviços automotivos, energia solar e serviços B2B.</p></details>
+      <details><summary>Quanto tempo leva para ver resultados?</summary><p>Depende do ponto de partida de cada empresa. O plano de 30 dias prioriza as ações de maior impacto para que os primeiros resultados apareçam o quanto antes.</p></details>
+      <details><summary>Preciso já estar anunciando?</summary><p>Não. Se você ainda não anuncia, o plano mostra por onde começar. Se já anuncia, mostramos o que ajustar para os resultados ficarem consistentes.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot"><img src="assets/logo-vortex.png" alt="Vortex Company" loading="lazy"><a href="#topo">Retornar ao topo</a></div>
+    <div class="copy"><span id="ano">2026</span> © Vortex Company. Todos os direitos reservados. <a href="#">Política de privacidade</a></div>
+  </div>
+</footer>
+
+<div class="sticky-cta" id="stickyCta"><a class="btn" href="#formulario" data-open-form>Quero saber mais</a></div>
+
+<!-- FORMULÁRIO: no computador fica no topo; no celular abre nesta janela -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="formTitle"></div>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagem ampliada"><button type="button" aria-label="Fechar">×</button><img alt=""></div>
+
+<script>
+/* ======================================================
+   CONFIGURAÇÃO — cole a URL do Google Apps Script
+   (veja automacao/LEIA-ME.md)
+   ====================================================== */
+window.VORTEX_CONFIG = {
+  SHEETS_URL: '',              // ex.: 'https://script.google.com/macros/s/XXXX/exec'
+  THANK_YOU_URL: 'obrigado/'   // página de obrigado
+};
+</script>
+<script>
+(function () {
+  'use strict';
+  var CFG = window.VORTEX_CONFIG;
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var isMobile = innerWidth < 640;
+  document.getElementById('ano').textContent = new Date().getFullYear();
+
+  /* ---------- menu e barra fixa ---------- */
+  var nav = document.getElementById('nav'), sticky = document.getElementById('stickyCta');
+  function onScroll() { nav.classList.toggle('scrolled', scrollY > 20); sticky.classList.toggle('show', scrollY > 600); }
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  /* ---------- UTMs ---------- */
+  var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'utm_id', 'campaign_id', 'adset_id', 'ad_id', 'fbclid', 'gclid'];
+  var params = new URLSearchParams(location.search), utm = {};
+  try { utm = JSON.parse(sessionStorage.getItem('vx_utm') || '{}'); } catch (e) {}
+  UTM_KEYS.forEach(function (k) { if (params.get(k)) utm[k] = params.get(k).slice(0, 200); });
+  try { sessionStorage.setItem('vx_utm', JSON.stringify(utm)); } catch (e) {}
+
+  function track(ev) {
+    try { if (window.fbq) fbq('track', ev); } catch (e) {}
+    try { if (window.gtag) gtag('event', ev === 'Lead' ? 'generate_lead' : 'begin_form'); } catch (e) {}
+    try { (window.dataLayer = window.dataLayer || []).push({ event: 'vortex_' + ev.toLowerCase() }); } catch (e) {}
+  }
+
+  /* ---------- imagem ampliada ---------- */
+  var lb = document.getElementById('lightbox');
+  function zoom(src) { lb.querySelector('img').src = src; lb.classList.add('open'); }
+  document.querySelectorAll('[data-zoom]').forEach(function (b) { b.addEventListener('click', function () { zoom(b.getAttribute('data-zoom')); }); });
+  lb.addEventListener('click', function () { lb.classList.remove('open'); });
+
+  /* ---------- janela do formulário ---------- */
+  // no computador o formulário fica no topo (lugar da foto); no celular abre numa janela
+  var modal = document.getElementById('modal'), card = document.getElementById('formulario'), home = document.getElementById('hform');
+  var lastFocus = null, opened = false;
+  function desktop() { return innerWidth > 900; }
+  function focusFirst() { var i = card.querySelector('.fstep.active input:not([type=radio])'); if (i) i.focus({ preventScroll: true }); }
+  function openForm(e) {
+    if (e) e.preventDefault();
+    if (!opened) { opened = true; track('InitiateCheckout'); }
+    if (desktop()) {
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      card.classList.remove('flash'); void card.offsetWidth; card.classList.add('flash');
+      setTimeout(focusFirst, 500);
+      return;
+    }
+    lastFocus = document.activeElement;
+    modal.appendChild(card); modal.classList.add('open'); document.body.style.overflow = 'hidden';
+  }
+  function closeForm() {
+    if (!modal.classList.contains('open')) return;
+    modal.classList.remove('open'); document.body.style.overflow = ''; home.appendChild(card);
+    if (lastFocus) lastFocus.focus();
+  }
+  addEventListener('resize', function () { if (desktop()) closeForm(); });
+  document.querySelectorAll('[data-open-form]').forEach(function (a) { a.addEventListener('click', openForm); });
+  modal.addEventListener('click', function (e) { if (e.target === modal) closeForm(); });
+  card.querySelector('[data-close]').addEventListener('click', closeForm);
+  addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeForm(); lb.classList.remove('open'); } });
+  if (location.hash === '#formulario') openForm();
+
+  /* ---------- formulário em etapas ---------- */
+  var form = document.getElementById('leadForm');
+  var steps = [].slice.call(form.querySelectorAll('.fstep'));
+  var bar = document.getElementById('bar'), label = document.getElementById('stepLabel'), pct = document.getElementById('stepPct');
+  var cur = 0, whats = document.getElementById('f-whats');
+  whats.addEventListener('input', function () {
+    var d = whats.value.replace(/\D/g, '').slice(0, 11), o = d;
+    if (d.length > 2) o = '(' + d.slice(0, 2) + ') ' + d.slice(2);
+    if (d.length > 7) o = '(' + d.slice(0, 2) + ') ' + d.slice(2, d.length === 11 ? 7 : 6) + '-' + d.slice(d.length === 11 ? 7 : 6);
+    whats.value = o;
+  });
+  function show(i) {
+    steps[cur].classList.remove('active'); cur = i; steps[cur].classList.add('active');
+    var p = Math.round(cur / steps.length * 100);
+    bar.style.width = p + '%'; pct.textContent = p + '%'; label.textContent = 'Etapa ' + (cur + 1) + ' de ' + steps.length;
+    var first = steps[cur].querySelector('input:not([type=radio])'); if (first && !isMobile) first.focus({ preventScroll: true });
+    card.scrollTop = 0;
+  }
+  function validate(i) {
+    var ok = true, s = steps[i]; s.classList.remove('err');
+    s.querySelectorAll('.field').forEach(function (f) {
+      var inp = f.querySelector('input'), v = inp.value.trim(), bad = !v;
+      if (inp.name === 'whatsapp') bad = v.replace(/\D/g, '').length < 10;
+      if (inp.name === 'nome') bad = v.length < 2;
+      f.classList.toggle('err', bad); if (bad) ok = false;
+    });
+    if (s.querySelector('input[type=radio]') && !s.querySelector('input[type=radio]:checked')) { s.classList.add('err'); ok = false; }
+    return ok;
+  }
+  form.addEventListener('input', function (e) { var f = e.target.closest('.field'); if (f) f.classList.remove('err'); });
+  form.addEventListener('click', function (e) {
+    if (e.target.closest('[data-next]')) { if (validate(cur)) show(cur + 1); }
+    if (e.target.closest('[data-back]')) show(cur - 1);
+  });
+  form.addEventListener('keydown', function (e) { if (e.key === 'Enter' && e.target.tagName === 'INPUT' && cur < steps.length - 1) { e.preventDefault(); if (validate(cur)) show(cur + 1); } });
+  form.addEventListener('change', function (e) { if (e.target.type !== 'radio') return; steps[cur].classList.remove('err'); if (cur < steps.length - 1) setTimeout(function () { show(cur + 1); }, 260); });
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    for (var i = 0; i < steps.length; i++) { if (!validate(i)) { show(i); return; } }
+    var fd = new FormData(form);
+    if (fd.get('website')) return;
+    var data = {
+      nome: fd.get('nome').trim(), whatsapp: '+55' + fd.get('whatsapp').replace(/\D/g, ''),
+      empresa: fd.get('empresa').trim(), segmento: fd.get('segmento').trim(),
+      desafio: fd.get('desafio'), faturamento: fd.get('faturamento'), capacidade: fd.get('capacidade'), momento: fd.get('momento'),
+      pagina: location.href.split('#')[0], enviado_em: new Date().toISOString()
+    };
+    for (var k in utm) data[k] = utm[k];
+    var btn = document.getElementById('submitBtn'); btn.disabled = true; btn.textContent = 'Enviando...';
+    try { sessionStorage.setItem('vx_nome', data.nome.split(' ')[0]); } catch (er) {}
+    track('Lead');
+    function go() { location.href = CFG.THANK_YOU_URL; }
+    if (!CFG.SHEETS_URL) { console.warn('VORTEX_CONFIG.SHEETS_URL vazio: lead não foi enviado à planilha.'); setTimeout(go, 400); return; }
+    var done = false, finish = function () { if (!done) { done = true; go(); } };
+    setTimeout(finish, 6000);
+    fetch(CFG.SHEETS_URL, { method: 'POST', mode: 'no-cors', keepalive: true, headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(data) }).then(finish, finish);
+  });
+
+  /* ---------- depoimentos (setas) ---------- */
+  var trk = document.getElementById('track');
+  document.getElementById('sNext').addEventListener('click', function () { trk.scrollBy({ left: trk.clientWidth / 2, behavior: 'smooth' }); });
+  document.getElementById('sPrev').addEventListener('click', function () { trk.scrollBy({ left: -trk.clientWidth / 2, behavior: 'smooth' }); });
+
+  /* ---------- carrossel 3D ---------- */
+  var ring = document.getElementById('ring'), items = ring.querySelectorAll('.ring__item'), car = document.getElementById('carousel');
+  var N = items.length, step = 360 / N, angle = 0, vel = 0, dragging = false, lastX = 0, hover = false, moved = 0, R = 0;
+  function layout() { var w = items[0].offsetWidth; R = Math.round((w / 2) / Math.tan(Math.PI / N) + 40); items.forEach(function (it, i) { it.style.transform = 'rotateY(' + (i * step) + 'deg) translateZ(' + R + 'px)'; }); }
+  layout(); addEventListener('resize', function () { isMobile = innerWidth < 640; layout(); });
+  var carVisible = true;
+  if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { carVisible = e[0].isIntersecting; }).observe(car);
+  (function loop() {
+    if (carVisible) {
+      if (!dragging) { angle += vel; vel *= .95; if (!hover && !reduce && Math.abs(vel) < .05) angle -= .15; }
+      ring.style.transform = 'translateZ(-' + R + 'px) rotateY(' + angle + 'deg)';
+      items.forEach(function (it, i) { var f = Math.cos(((i * step + angle) % 360) * Math.PI / 180); it.style.filter = 'brightness(' + (.4 + .6 * Math.max(0, f)).toFixed(2) + ')'; });
+    }
+    requestAnimationFrame(loop);
+  })();
+  car.addEventListener('pointerenter', function () { hover = true; });
+  car.addEventListener('pointerleave', function () { hover = false; dragging = false; });
+  car.addEventListener('pointerdown', function (e) { dragging = true; lastX = e.clientX; moved = 0; vel = 0; });
+  addEventListener('pointermove', function (e) { if (!dragging) return; var dx = e.clientX - lastX; lastX = e.clientX; moved += Math.abs(dx); angle += dx * .25; vel = dx * .25; });
+  addEventListener('pointerup', function () { dragging = false; });
+  items.forEach(function (it) { it.addEventListener('click', function () { if (moved < 6) zoom(it.querySelector('img').src); }); });
+
+  /* ---------- jornada: etapa ativa gira ---------- */
+  var nodes = document.querySelectorAll('.node'), checks = document.querySelectorAll('#checks li');
+  var map = [0, 0, 1, 2, 3, 3], act = 0;
+  function setNode(i) { act = i; nodes.forEach(function (n, j) { n.classList.toggle('on', j === i); }); checks.forEach(function (c, j) { c.classList.toggle('on', j === map[i]); }); }
+  setNode(0); if (!reduce) setInterval(function () { setNode((act + 1) % nodes.length); }, 1800);
+
+  /* ---------- animações (carregadas depois da página) ---------- */
+  var LIB_GLOBAL = { 'assets/js/gsap.min.js': 'gsap', 'assets/js/ScrollTrigger.min.js': 'ScrollTrigger', 'assets/js/three.min.js': 'THREE' };
+  function loadScript(src) { if (window[LIB_GLOBAL[src]]) return Promise.resolve(); return new Promise(function (res, rej) { var s = document.createElement('script'); s.src = src; s.async = true; s.onload = res; s.onerror = rej; document.head.appendChild(s); }); }
+  function showAll() { document.querySelectorAll('[data-reveal]').forEach(function (el) { el.style.opacity = 1; }); }
+  function boot() {
+    loadScript('assets/js/gsap.min.js').then(function () { return loadScript('assets/js/ScrollTrigger.min.js'); }).then(initGsap).catch(showAll);
+  }
+  if (document.readyState === 'complete') boot(); else addEventListener('load', boot);
+  setTimeout(function () { if (!window.gsap) showAll(); }, 4000);
+
+  function initGsap() {
+    if (reduce) return showAll();
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from('.hero__txt > *', { opacity: 0, y: 30, duration: .9, stagger: .1, ease: 'power3.out', clearProps: 'transform,opacity', onStart: function () { document.querySelector('.hero .btn').style.transition = 'none'; }, onComplete: function () { document.querySelector('.hero .btn').style.transition = ''; } });
+    gsap.from('.hform', { opacity: 0, rotateY: -18, x: 50, duration: 1.3, ease: 'power3.out', delay: .2, transformPerspective: 1200, clearProps: 'transform' });
+    gsap.utils.toArray('[data-reveal]').forEach(function (el) {
+      gsap.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1, ease: 'power3.out', clearProps: 'transform', scrollTrigger: { trigger: el, start: 'top 88%' } });
+    });
+    ScrollTrigger.batch('[data-card]', { start: 'top 90%', onEnter: function (b) { gsap.from(b, { opacity: 0, y: 50, rotateX: -20, transformPerspective: 1000, transformOrigin: '50% 0%', duration: .9, stagger: .1, ease: 'power3.out', clearProps: 'transform' }); } });
+  }
+
+})();
+</script>
+</body>
+</html>
