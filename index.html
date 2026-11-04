@@ -292,7 +292,8 @@
   .field.err .ferr, .fstep.err > .ferr { display: block; }
   .hint { font-size: 11px; color: var(--fg-3); margin-top: 5px; }
   .opts { display: grid; gap: 7px; }
-  .opts--2 { grid-template-columns: 1fr 1fr; }
+  .opts--list { gap: 5px; }
+  .opts--list .opt span { padding: 8px 12px; white-space: nowrap; }
   .opt { position: relative; }
   .opt input { position: absolute; opacity: 0; pointer-events: none; }
   .opt span { display: flex; align-items: center; gap: 10px; padding: 11px 12px; border-radius: 8px; cursor: pointer; border: 1px solid rgba(255,255,255,.1); background: #0e0f12; font-size: 13px; line-height: 1.3; transition: border-color .2s, background .2s; }
@@ -302,8 +303,9 @@
   .opt input:checked + span::before { border-color: var(--green-2); background: var(--green-2); box-shadow: inset 0 0 0 3px #0e0f12; }
   .opt input:focus-visible + span { box-shadow: 0 0 0 3px rgba(26,140,255,.4); }
   .factions { display: flex; gap: 8px; margin-top: 16px; }
-  .back { flex: none; padding: 0 16px; border-radius: 999px; border: 1px solid rgba(255,255,255,.14); background: transparent; color: var(--fg-2); font: 500 12.5px/1 "Inter"; cursor: pointer; }
-  .back:hover { color: #fff; }
+  .back { flex: none; width: 44px; height: 44px; padding: 0; display: grid; place-items: center; border-radius: 50%; border: 1px solid rgba(26,140,255,.45); background: rgba(26,140,255,.1); color: var(--blue); cursor: pointer; transition: background .2s, color .2s; }
+  .back svg { width: 20px; height: 20px; }
+  .back:hover { background: var(--blue); color: #fff; }
   .secure { text-align: center; margin-top: 14px; font-size: 11px; color: var(--fg-3); }
   .sr, .hp { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
   .hp { left: -9999px; }
@@ -354,7 +356,6 @@
     .node span { font-size: 8.5px; }
     .carousel { height: 400px; }
     .ring__item { width: 160px; height: 284px; left: -80px; }
-    .opts--2 { grid-template-columns: 1fr; }
     .modal { padding: 0; align-items: flex-end; }
     .modal .form-card { max-height: 94vh; border-radius: 16px 16px 0 0; max-width: none; }
     .sticky-cta { display: block; }
@@ -414,6 +415,7 @@
         <h3>Vamos começar. Como podemos te chamar?</h3>
         <div class="field"><label for="f-nome">Qual é o seu nome?</label><input id="f-nome" name="nome" type="text" autocomplete="name" placeholder="Seu nome completo" required maxlength="80"><div class="ferr">Digite seu nome.</div></div>
         <div class="field"><label for="f-whats">Qual é o seu WhatsApp?</label><input id="f-whats" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="(00) 00000-0000" required maxlength="16"><div class="ferr">Digite um WhatsApp válido com DDD.</div></div>
+        <div class="field"><label for="f-email">Qual é o seu e-mail?</label><input id="f-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="seuemail@empresa.com" required maxlength="120"><div class="ferr">Digite um e-mail válido.</div></div>
         <div class="field"><label for="f-empresa">Qual é o nome da sua empresa?</label><input id="f-empresa" name="empresa" type="text" autocomplete="organization" placeholder="Nome da empresa" required maxlength="100"><div class="ferr">Digite o nome da empresa.</div></div>
         <div class="factions"><button type="button" class="btn btn--block" data-next>Continuar</button></div>
       </div>
@@ -421,7 +423,7 @@
       <div class="fstep" data-step="2">
         <h3>Em qual segmento sua empresa atua?</h3>
         <div class="field"><label for="f-seg" class="sr">Segmento</label><input id="f-seg" name="segmento" type="text" placeholder="Ex.: clínica, vidraçaria, energia solar..." required maxlength="100"><div class="hint">Clínica, construção, vidraçaria, esquadrias, serviços automotivos, energia solar, serviços B2B etc.</div><div class="ferr">Conte qual é o seu segmento.</div></div>
-        <div class="factions"><button type="button" class="back" data-back>Voltar</button><button type="button" class="btn btn--block" data-next>Continuar</button></div>
+        <div class="factions"><button type="button" class="back" data-back aria-label="Voltar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><button type="button" class="btn btn--block" data-next>Continuar</button></div>
       </div>
 
       <div class="fstep" data-step="3">
@@ -434,21 +436,25 @@
           <label class="opt"><input type="radio" name="desafio" value="Quero crescer, mas não sei exatamente o que precisa ser corrigido"><span>Quero crescer, mas não sei exatamente o que precisa ser corrigido</span></label>
         </div>
         <div class="ferr">Escolha uma opção.</div>
-        <div class="factions"><button type="button" class="back" data-back>Voltar</button></div>
+        <div class="factions"><button type="button" class="back" data-back aria-label="Voltar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button></div>
       </div>
 
       <div class="fstep" data-step="4">
         <h3>Qual é aproximadamente o faturamento mensal da sua empresa?</h3>
-        <div class="opts opts--2">
-          <label class="opt"><input type="radio" name="faturamento" value="Até R$30 mil"><span>Até R$30 mil</span></label>
-          <label class="opt"><input type="radio" name="faturamento" value="R$30 mil a R$60 mil"><span>R$30 mil a R$60 mil</span></label>
-          <label class="opt"><input type="radio" name="faturamento" value="R$60 mil a R$100 mil"><span>R$60 mil a R$100 mil</span></label>
-          <label class="opt"><input type="radio" name="faturamento" value="R$100 mil a R$200 mil"><span>R$100 mil a R$200 mil</span></label>
-          <label class="opt"><input type="radio" name="faturamento" value="R$200 mil a R$500 mil"><span>R$200 mil a R$500 mil</span></label>
-          <label class="opt"><input type="radio" name="faturamento" value="Acima de R$500 mil"><span>Acima de R$500 mil</span></label>
+        <div class="opts opts--list">
+          <label class="opt"><input type="radio" name="faturamento" value="Até 50 mil"><span>Até 50 mil</span></label>
+          <label class="opt"><input type="radio" name="faturamento" value="De 51 mil à 70 mil"><span>De 51 mil à 70 mil</span></label>
+          <label class="opt"><input type="radio" name="faturamento" value="De 71 mil à 100 mil"><span>De 71 mil à 100 mil</span></label>
+          <label class="opt"><input type="radio" name="faturamento" value="De 101 mil à 200 mil"><span>De 101 mil à 200 mil</span></label>
+          <label class="opt"><input type="radio" name="faturamento" value="De 201 mil à 400 mil"><span>De 201 mil à 400 mil</span></label>
+          <label class="opt"><input type="radio" name="faturamento" value="De 401 mil à 1 milhão"><span>De 401 mil à 1 milhão</span></label>
+          <label class="opt"><input type="radio" name="faturamento" value="De 1 à 4 milhões"><span>De 1 à 4 milhões</span></label>
+          <label class="opt"><input type="radio" name="faturamento" value="De 4 à 16 milhões"><span>De 4 à 16 milhões</span></label>
+          <label class="opt"><input type="radio" name="faturamento" value="De 16 a 40 milhões"><span>De 16 a 40 milhões</span></label>
+          <label class="opt"><input type="radio" name="faturamento" value="Mais de 40 milhões"><span>Mais de 40 milhões</span></label>
         </div>
         <div class="ferr">Escolha uma opção.</div>
-        <div class="factions"><button type="button" class="back" data-back>Voltar</button></div>
+        <div class="factions"><button type="button" class="back" data-back aria-label="Voltar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button></div>
       </div>
 
       <div class="fstep" data-step="5">
@@ -459,7 +465,7 @@
           <label class="opt"><input type="radio" name="capacidade" value="Hoje já estamos próximos do limite"><span>Hoje já estamos próximos do limite</span></label>
         </div>
         <div class="ferr">Escolha uma opção.</div>
-        <div class="factions"><button type="button" class="back" data-back>Voltar</button></div>
+        <div class="factions"><button type="button" class="back" data-back aria-label="Voltar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button></div>
       </div>
 
       <div class="fstep" data-step="6">
@@ -470,7 +476,7 @@
           <label class="opt"><input type="radio" name="momento" value="Em até 90 dias"><span>Em até 90 dias</span></label>
         </div>
         <div class="ferr">Escolha uma opção.</div>
-        <div class="factions"><button type="button" class="back" data-back>Voltar</button><button type="submit" class="btn btn--block" id="submitBtn">Quero meu plano 2027</button></div>
+        <div class="factions"><button type="button" class="back" data-back aria-label="Voltar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><button type="submit" class="btn btn--block" id="submitBtn">Quero meu plano 2027</button></div>
       </div>
     </form>
     <div class="secure">🔒 Seus dados estão seguros. Não enviamos spam.</div>
@@ -818,6 +824,7 @@ window.VORTEX_CONFIG = {
       var inp = f.querySelector('input'), v = inp.value.trim(), bad = !v;
       if (inp.name === 'whatsapp') bad = v.replace(/\D/g, '').length < 10;
       if (inp.name === 'nome') bad = v.length < 2;
+      if (inp.name === 'email') bad = !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
       f.classList.toggle('err', bad); if (bad) ok = false;
     });
     if (s.querySelector('input[type=radio]') && !s.querySelector('input[type=radio]:checked')) { s.classList.add('err'); ok = false; }
@@ -829,14 +836,20 @@ window.VORTEX_CONFIG = {
     if (e.target.closest('[data-back]')) show(cur - 1);
   });
   form.addEventListener('keydown', function (e) { if (e.key === 'Enter' && e.target.tagName === 'INPUT' && cur < steps.length - 1) { e.preventDefault(); if (validate(cur)) show(cur + 1); } });
-  form.addEventListener('change', function (e) { if (e.target.type !== 'radio') return; steps[cur].classList.remove('err'); if (cur < steps.length - 1) setTimeout(function () { show(cur + 1); }, 260); });
+  // escolher uma opção avança sozinho (inclusive clicando de novo na que já estava marcada)
+  var advancing = false;
+  form.addEventListener('click', function (e) {
+    var opt = e.target.closest('.opt'); if (!opt || e.target.tagName !== 'INPUT') return;
+    steps[cur].classList.remove('err');
+    if (cur < steps.length - 1 && !advancing) { advancing = true; setTimeout(function () { advancing = false; show(cur + 1); }, 260); }
+  });
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     for (var i = 0; i < steps.length; i++) { if (!validate(i)) { show(i); return; } }
     var fd = new FormData(form);
     if (fd.get('website')) return;
     var data = {
-      nome: fd.get('nome').trim(), whatsapp: '+55' + fd.get('whatsapp').replace(/\D/g, ''),
+      nome: fd.get('nome').trim(), whatsapp: '+55' + fd.get('whatsapp').replace(/\D/g, ''), email: fd.get('email').trim().toLowerCase(),
       empresa: fd.get('empresa').trim(), segmento: fd.get('segmento').trim(),
       desafio: fd.get('desafio'), faturamento: fd.get('faturamento'), capacidade: fd.get('capacidade'), momento: fd.get('momento'),
       pagina: location.href.split('#')[0], enviado_em: new Date().toISOString()
