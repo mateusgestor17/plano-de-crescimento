@@ -134,6 +134,20 @@
   .who { display: flex; align-items: center; gap: 10px; }
   .who i { width: 32px; height: 32px; border-radius: 50%; flex: none; display: grid; place-items: center; font: 600 13px/1 "Inter"; font-style: normal; background: rgba(255,255,255,.2); }
   .tcard--white .who i { background: var(--blue); color: #fff; }
+  .who i.who__logo, .tcard--white .who i.who__logo { width: 44px; height: 44px; padding: 6px; background: #fff; overflow: hidden; box-shadow: 0 0 0 2px rgba(255,255,255,.35); }
+  .who i.who__logo img { width: 100%; height: 100%; object-fit: contain; }
+  .who i.who__logo--dark, .tcard--white .who i.who__logo--dark { background: #000; padding: 0; }
+  .who i.who__logo--dark img { object-fit: cover; }
+  .tcard--white .who i.who__logo { box-shadow: 0 0 0 1px #dfe2e8; }
+  /* faixa de logos dos clientes */
+  .clients { margin-top: 48px; text-align: center; }
+  .clients__title { font-size: 11px; color: var(--fg-3); letter-spacing: .2em; text-transform: uppercase; margin-bottom: 18px; }
+  .clients__row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .client { height: 86px; border-radius: 6px; background: #fff; display: grid; place-items: center; padding: 12px 18px; transition: transform .3s var(--ease), box-shadow .3s; }
+  .client:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(26,140,255,.25); }
+  .client img { max-width: 100%; max-height: 62px; object-fit: contain; }
+  .client--dark { background: #000; padding: 6px 10px; overflow: hidden; }
+  .client--dark img { max-height: 74px; }
   .who b { display: block; font-size: 12.5px; color: inherit; }
   .who small { font-size: 11px; opacity: .7; }
   .tcard__view { margin-left: auto; padding: 7px 12px; border-radius: 999px; border: 1px solid currentColor; background: transparent; color: inherit; font: 500 11px/1 "Inter"; cursor: pointer; opacity: .85; }
@@ -330,6 +344,9 @@
     .tcard__shot { width: 100%; aspect-ratio: 4 / 5; }
     .tcard__shot img { object-position: 50% 35%; }
     .slider__nav { display: none; }
+    .clients__row { grid-template-columns: 1fr 1fr; }
+    .client:last-child { grid-column: 1 / -1; width: calc(50% - 6px); justify-self: center; }
+    .client { height: 74px; }
     .paths { grid-template-columns: 1fr; }
     .path h3 { font-size: 20px; }
     .phases { grid-template-columns: 1fr; }
@@ -416,7 +433,7 @@
           <div class="tcard__tag">R$ 36.378 faturados em 15 dias</div>
           <blockquote>Com apenas R$ 580 investidos em anúncios, a Show dos Toldos fechou 7 vendas e faturou R$ 36.378 em 15 dias.</blockquote>
           <div class="tcard__nums"><div><small>Investido</small><b>R$ 580</b></div><div><small>Faturado</small><b>R$ 36,4 mil</b></div><div><small>Retorno</small><b>62x</b></div></div>
-          <div class="who"><i>S</i><div><b>Show dos Toldos</b><small>Toldos e coberturas</small></div></div>
+          <div class="who"><i class="who__logo who__logo--dark"><img src="assets/img/clientes/avatar-show-dos-toldos.jpg" alt="Logo Show dos Toldos"></i><div><b>Show dos Toldos</b><small>Toldos e coberturas</small></div></div>
           </div>
         </article>
         <article class="tcard tcard--white">
@@ -426,7 +443,7 @@
           <div class="tcard__tag">5 leads e 4 fechamentos em um dia</div>
           <blockquote>“Recebemos 5 leads ontem e tivemos 4 fechamentos!!! Tô muito contente. Tem bastante tempo que não vejo uma conversão tão boa.”</blockquote>
           <div class="tcard__nums"><div><small>Leads</small><b>5</b></div><div><small>Vendas</small><b>4</b></div><div><small>Conversão</small><b>80%</b></div></div>
-          <div class="who"><i>D</i><div><b>Thais · Desentupidora DBM</b><small>Desentupidora</small></div></div>
+          <div class="who"><i class="who__logo"><img src="assets/img/clientes/avatar-dbm.png" alt="Logo DBM"></i><div><b>Thais · Desentupidora DBM</b><small>Desentupidora</small></div></div>
           </div>
         </article>
         <article class="tcard tcard--blue">
@@ -446,7 +463,7 @@
           <div class="tcard__tag">+R$ 20 mil em apenas 15 dias</div>
           <blockquote>Mais um ciclo da Show dos Toldos: R$ 480 investidos e R$ 20.510 em vendas em 15 dias.</blockquote>
           <div class="tcard__nums"><div><small>Investido</small><b>R$ 480</b></div><div><small>Faturado</small><b>R$ 20,5 mil</b></div><div><small>Retorno</small><b>42x</b></div></div>
-          <div class="who"><i>S</i><div><b>Show dos Toldos</b><small>Toldos e coberturas</small></div></div>
+          <div class="who"><i class="who__logo who__logo--dark"><img src="assets/img/clientes/avatar-show-dos-toldos.jpg" alt="Logo Show dos Toldos"></i><div><b>Show dos Toldos</b><small>Toldos e coberturas</small></div></div>
           </div>
         </article>
         <article class="tcard tcard--blue">
@@ -456,7 +473,7 @@
           <div class="tcard__tag">De R$ 412 investidos para R$ 12.193 faturados</div>
           <blockquote>“Iniciamos o projeto no dia 23/08. Em apenas 7 dias de campanha, com R$ 412 de investimento, tivemos um retorno de R$ 12.193 em faturamento.”</blockquote>
           <div class="tcard__nums"><div><small>Retorno</small><b>29,6x</b></div><div><small>Leads</small><b>15</b></div><div><small>Prazo</small><b>7 dias</b></div></div>
-          <div class="who"><i>E</i><div><b>Esquadri Zen</b><small>Esquadrias premium</small></div></div>
+          <div class="who"><i class="who__logo"><img src="assets/img/clientes/avatar-esquadri-zen.png" alt="Logo Esquadri Zen"></i><div><b>Esquadri Zen</b><small>Esquadrias premium</small></div></div>
           </div>
         </article>
         <article class="tcard tcard--white">
@@ -471,6 +488,18 @@
         </article>
       </div>
       <div class="slider__nav"><button type="button" id="sPrev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" id="sNext" aria-label="Próximo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg></button></div>
+    </div>
+
+    <!-- logos de clientes: adicione mais em assets/img/clientes/ -->
+    <div class="clients" data-reveal>
+      <div class="clients__title">Empresas que ajudamos a alavancar</div>
+      <div class="clients__row">
+        <div class="client client--dark"><img src="assets/img/clientes/show-dos-toldos.jpg" alt="Show dos Toldos" loading="lazy"></div>
+        <div class="client"><img src="assets/img/clientes/esquadri-zen.png" alt="Esquadri Zen - Vidros e esquadrias de alumínio" loading="lazy"></div>
+        <div class="client"><img src="assets/img/clientes/dbm.png" alt="DBM - Central de serviços" loading="lazy"></div>
+        <div class="client"><img src="assets/img/clientes/governador.png" alt="Desentupidora Governador" loading="lazy"></div>
+        <div class="client"><img src="assets/img/clientes/ecologica.png" alt="Ecológica Imunizações e Serviços" loading="lazy"></div>
+      </div>
     </div>
 
     <!-- prints em carrossel 3D: troque/adicione imagens em assets/img/resultados/ -->

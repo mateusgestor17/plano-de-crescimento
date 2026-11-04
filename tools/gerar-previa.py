@@ -9,6 +9,8 @@ libs = lib('gsap.min.js') + lib('ScrollTrigger.min.js') + lib('three.min.js')
 
 # página principal
 s = open(os.path.join(R, 'index.html')).read()
+for f in sorted(os.listdir(os.path.join(R, 'assets/img/clientes'))):
+    s = s.replace('assets/img/clientes/' + f, b64(os.path.join(R, 'assets/img/clientes', f), 'image/png' if f.endswith('.png') else 'image/jpeg'))
 for f in sorted(os.listdir(os.path.join(R, 'assets/img/resultados'))):
     s = s.replace('assets/img/resultados/' + f, b64(os.path.join(R, 'assets/img/resultados', f), 'image/jpeg'))
 s = s.replace('assets/logo-horizontal.png', b64(os.path.join(R, 'assets/logo-horizontal.png'), 'image/png'))
