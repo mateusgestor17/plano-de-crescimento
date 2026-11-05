@@ -12,7 +12,7 @@ def lib(name):
     return '<script>' + open(os.path.join(R, 'assets/js', name)).read().replace('</script', '<\\/script') + '</script>'
 
 def embutir_imagens(s, prefixo):
-    for pasta in ['assets/img/clientes', 'assets/img/resultados', 'assets']:
+    for pasta in ['assets/img/clientes', 'assets/img/resultados', 'assets/img/sistema', 'assets']:
         for f in sorted(os.listdir(os.path.join(R, pasta))):
             if f.endswith(('.png', '.jpg')):
                 s = s.replace(prefixo + pasta + '/' + f, b64(os.path.join(R, pasta, f)))

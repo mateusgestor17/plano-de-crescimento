@@ -184,27 +184,22 @@
      3. PLATAFORMA COM IA
      ========================================================= */
   .platform { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; margin: 170px auto 0; }
-  .mock { position: relative; height: 520px; perspective: 1400px; }
+  .mock { position: relative; height: 540px; perspective: 1400px; }
   .mock__inner { position: absolute; inset: 0; transform-style: preserve-3d; }
   .sheet {
-    position: absolute; background: #fff; color: #1b2233; border-radius: 8px;
-    box-shadow: 0 30px 60px rgba(0,0,0,.6), 0 0 40px rgba(26,140,255,.18); padding: 16px; font-size: 9px;
+    position: absolute; display: block; padding: 0; margin: 0; border: 0; cursor: zoom-in; overflow: hidden;
+    background: #fff; border-radius: 10px;
+    box-shadow: 0 30px 60px rgba(0,0,0,.6), 0 0 40px rgba(26,140,255,.18);
   }
-  .sheet h6 { margin: 0 0 8px; font-size: 9px; font-weight: 700; }
-  .sheet .bar { height: 5px; border-radius: 3px; background: #e3e8f2; margin: 5px 0; }
-  .sheet .bar.s { width: 60%; } .sheet .bar.m { width: 80%; }
-  .sheet .bar.b { background: linear-gradient(90deg, var(--blue), var(--cyan)); }
-  .s1 { left: 10px; top: 0; width: 360px; height: 165px; transform: rotate(-3deg) translateZ(30px); }
-  .s1 .big { font-size: 16px; font-weight: 800; margin: 6px 0 10px; }
-  .s1 svg { width: 100%; height: 60px; }
-  .s1 .line { stroke-dasharray: 420; stroke-dashoffset: 420; }
-  .s2 { left: 0; top: 150px; width: 380px; height: 200px; transform: rotate(1deg) translateZ(70px); display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .s2 .radar { display: grid; place-items: center; height: 140px; }
-  .s2 .radar div { width: 70px; height: 70px; background: #dfe6f3; transform: rotate(45deg); position: relative; }
-  .s2 .radar div::after { content: ""; position: absolute; inset: 12px; background: linear-gradient(135deg, var(--blue), var(--cyan)); opacity: .9; animation: breathe 3s ease-in-out infinite; }
-  @keyframes breathe { 50% { inset: 6px; } }
-  .s3 { left: 18px; top: 335px; width: 360px; height: 180px; transform: rotate(-2deg) translateZ(110px); }
-  .s3 .score { width: 42px; height: 42px; border-radius: 50%; border: 3px solid var(--blue); display: grid; place-items: center; font-size: 12.5px; font-weight: 800; color: var(--blue); float: left; margin: 4px 12px 8px 0; }
+  .sheet img { display: block; width: 100%; height: auto; }
+  .sheet:hover { box-shadow: 0 30px 60px rgba(0,0,0,.6), 0 0 0 2px var(--blue), 0 0 40px rgba(26,140,255,.3); }
+  .s1 { left: 6px; top: 0; width: 380px; transform: rotate(-3deg) translateZ(30px); }
+  .s2 { left: 0; top: 128px; width: 392px; transform: rotate(1deg) translateZ(70px); }
+  .s3 { left: 14px; top: 334px; width: 380px; transform: rotate(-2deg) translateZ(110px); }
+  .lightbox { position: fixed; inset: 0; z-index: 200; display: none; place-items: center; padding: 24px; background: rgba(5,6,9,.92); cursor: zoom-out; }
+  .lightbox.open { display: grid; }
+  .lightbox img { max-width: min(1100px, 94vw); max-height: 88vh; border-radius: 12px; box-shadow: 0 30px 80px rgba(0,0,0,.6); }
+  .lightbox button { position: absolute; top: 18px; right: 18px; width: 42px; height: 42px; border-radius: 50%; border: 0; background: rgba(255,255,255,.12); color: #fff; font-size: 22px; cursor: pointer; }
   .platform h2 { margin: 0 0 18px; font-size: 25.5px; font-weight: 500; line-height: 1.25; text-transform: uppercase; letter-spacing: .01em; }
   .platform h2 .grad { font-weight: 800; }
   .platform p { margin: 0 0 16px; font-size: 16px; line-height: 1.45; color: var(--fg-2); }
@@ -290,8 +285,9 @@
     .vcard { padding: 36px 20px 56px; border-radius: 36px; }
     .vcard h2 { font-size: 24px; }
     .platform { grid-template-columns: 1fr; margin-top: 120px; text-align: center; }
-    .mock { height: 430px; transform: scale(.82); transform-origin: top center; }
-    .mock .sheet { left: 50% !important; margin-left: -185px; }
+    .mock { height: 450px; transform: scale(.82); transform-origin: top center; }
+    .mock .sheet { left: 50% !important; margin-left: -190px; }
+    .mock .s2 { margin-left: -196px; }
     .how { grid-template-columns: 1fr; padding: 40px 22px 70px; border-radius: 36px; margin-top: 110px; }
     .how h2 { font-size: 39px; padding-left: 0; text-align: center; }
     .pricing h2 { font-size: 27.5px; }
@@ -404,34 +400,10 @@ src="https://www.facebook.com/tr?id=1000201836168398&ev=PageView&noscript=1"
     <div class="platform">
       <div class="mock" aria-hidden="true">
         <div class="mock__inner" id="mock">
-          <div class="sheet s1">
-            <h6>Faturamento mensal da empresa</h6>
-            <div class="big">R$ 000.000,00</div>
-            <svg viewBox="0 0 300 60" preserveAspectRatio="none">
-              <defs><linearGradient id="ga" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#1A8CFF" stop-opacity=".35"/><stop offset="1" stop-color="#1A8CFF" stop-opacity="0"/></linearGradient></defs>
-              <path d="M0 50 C40 46 60 30 100 34 S170 20 200 24 S260 8 300 10 L300 60 L0 60Z" fill="url(#ga)"/>
-              <path class="line" d="M0 50 C40 46 60 30 100 34 S170 20 200 24 S260 8 300 10" fill="none" stroke="#1A8CFF" stroke-width="2.5"/>
-            </svg>
-          </div>
-          <div class="sheet s2">
-            <div>
-              <h6>Nota de maturidade por pilar</h6>
-              <div class="radar"><div></div></div>
-            </div>
-            <div>
-              <h6>&nbsp;</h6>
-              <div class="bar b m"></div><div class="bar"></div><div class="bar s"></div>
-              <div class="bar b"></div><div class="bar"></div><div class="bar s"></div>
-              <div class="bar m"></div><div class="bar b s"></div>
-            </div>
-          </div>
-          <div class="sheet s3">
-            <h6>Diagnóstico detalhado por categoria</h6>
-            <div class="score">6,5</div>
-            <div class="bar"></div><div class="bar b m"></div><div class="bar s"></div>
-            <div style="clear:both"></div>
-            <div class="bar"></div><div class="bar m"></div><div class="bar b"></div><div class="bar s"></div><div class="bar m"></div>
-          </div>
+          <!-- demonstração do sistema VTX.GROW (prints em assets/img/sistema/) -->
+          <button type="button" class="sheet s1" data-zoom="../assets/img/sistema/visao-geral.jpg" aria-label="Ampliar: visão geral"><img src="../assets/img/sistema/visao-geral.jpg" alt="VTX.GROW: visão geral com índice de maturidade, faturamento, meta e gap de receita" loading="lazy"></button>
+          <button type="button" class="sheet s2" data-zoom="../assets/img/sistema/canais.jpg" aria-label="Ampliar: canais e plano de captação"><img src="../assets/img/sistema/canais.jpg" alt="VTX.GROW: canais recomendados e plano de captação" loading="lazy"></button>
+          <button type="button" class="sheet s3" data-zoom="../assets/img/sistema/plano-de-acao.jpg" aria-label="Ampliar: plano de ação"><img src="../assets/img/sistema/plano-de-acao.jpg" alt="VTX.GROW: plano de ação com prioridades" loading="lazy"></button>
         </div>
       </div>
       <div data-reveal>
@@ -515,6 +487,8 @@ src="https://www.facebook.com/tr?id=1000201836168398&ev=PageView&noscript=1"
   </div>
 </footer>
 
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagem ampliada"><button type="button" aria-label="Fechar">×</button><img alt=""></div>
+
 <script src="../assets/js/gsap.min.js"></script>
 <script src="../assets/js/ScrollTrigger.min.js"></script>
 <script>
@@ -522,6 +496,14 @@ src="https://www.facebook.com/tr?id=1000201836168398&ev=PageView&noscript=1"
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var isMobile = window.innerWidth < 760;
   document.getElementById('ano').textContent = new Date().getFullYear();
+  // prints do sistema: clique para ampliar
+  var lb = document.getElementById('lightbox');
+  document.querySelectorAll('[data-zoom]').forEach(function (bt) {
+    bt.addEventListener('click', function () { lb.querySelector('img').src = bt.getAttribute('data-zoom'); lb.querySelector('img').alt = bt.getAttribute('aria-label') || ''; lb.classList.add('open'); });
+  });
+  lb.addEventListener('click', function () { lb.classList.remove('open'); });
+  addEventListener('keydown', function (e) { if (e.key === 'Escape') lb.classList.remove('open'); });
+
   // checkout Kiwify: leva as UTMs da visita e registra InitiateCheckout no pixel
   document.querySelectorAll('[data-checkout]').forEach(function (a) {
     try {
@@ -589,7 +571,6 @@ src="https://www.facebook.com/tr?id=1000201836168398&ev=PageView&noscript=1"
     autoAlpha: 0, x: -260, z: -500, rotateY: 65, rotateZ: -25, duration: 1.4, ease: 'power4.out', stagger: .18,
     scrollTrigger: { trigger: '.mock', start: 'top 80%', once: true }
   });
-  gsap.to('.s1 .line', { strokeDashoffset: 0, duration: 2, ease: 'power2.out', scrollTrigger: { trigger: '.mock', start: 'top 70%', once: true } });
   // parallax: o bloco inteiro gira devagar enquanto rola (no contêiner, sem brigar com a entrada dos relatórios)
   gsap.fromTo('#mock', { rotateY: 18, rotateX: 8 }, { rotateY: -14, rotateX: -6, ease: 'none', scrollTrigger: { trigger: '.mock', start: 'top bottom', end: 'bottom top', scrub: 1 } });
 
